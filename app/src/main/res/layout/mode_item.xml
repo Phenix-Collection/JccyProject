@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mode"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:mrl_rippleColor="@color/ripple_color_black"
+    app:mrl_rippleAlpha="0.1"
+    app:mrl_ripple_type="type_round"
+    app:mrl_rippleDimension="5dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_black"
+        android:text="@string/mode"
+        android:drawableTop="@drawable/ic_mode"
+        android:drawablePadding="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"
+        />
+
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

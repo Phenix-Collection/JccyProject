@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.abclauncher.powerboost.RankActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+        <com.abclauncher.powerboost.view.MaterialRippleLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:mrl_ripple_type="type_round"
+            app:mrl_rippleColor="@color/ripple_color_light"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDimension="0dp">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_white_24dp"
+                android:padding="10dp"/>
+
+        </com.abclauncher.powerboost.view.MaterialRippleLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/rank"
+            android:textColor="@color/text_color_white"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+    </LinearLayout>
+
+    <include layout="@layout/rank_activity_hide_system_apps"/>
+
+    <include layout="@layout/rank_activity_content_main" />
+
+</LinearLayout>

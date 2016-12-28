@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PowerBoost</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_white_list">Whitelist</string>
+    <string name="action_share">Share</string>
+    <string name="action_rate">Rate</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_about_us">About Us</string>
+    <string name="mode">Mode</string>
+    <string name="charge">Charge</string>
+    <string name="rank">Rank</string>
+    <string name="hide_system_app">Hide System Apps</string>
+    <string name="view">View</string>
+    <string name="general_mode">General mode</string>
+    <string name="general_mode_des">Recommended when fully charged</string>
+    <string name="battery_save_mode">Battery saving mode</string>
+    <string name="battery_save_mode_des">Recommended when in low battery</string>
+    <string name="sleep_mode">Sleep mode</string>
+    <string name="sleep_mode_des">Recommended when falling asleep</string>
+    <string name="my_mode">My mode</string>
+    <string name="my_mode_des">Totally customizable mode</string>
+    <string name="brightness">Brightness</string>
+    <string name="brightness_value_auto">Auto</string>
+    <string name="screen_timeout">Screen timeout</string>
+
+    <string-array name="screen_out_time_values">
+        <item>15s</item>
+        <item>30s</item>
+        <item>1m</item>
+        <item>5m</item>
+        <item>10m</item>
+    </string-array>
+</resources>

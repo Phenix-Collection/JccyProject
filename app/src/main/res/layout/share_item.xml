@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:mrl_rippleColor="@color/ripple_color_black"
+    app:mrl_rippleAlpha="0.10">
+    <TextView
+        android:id="@+id/share"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:textColor="@color/menu_text_color"
+        android:text="@string/action_share"/>
+
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

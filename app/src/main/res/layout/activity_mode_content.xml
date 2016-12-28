@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@color/bg_light_gray">
+    <include
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        layout="@layout/activity_mode_general_mode_item"/>
+    <include
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/mode_activity_margin"
+        layout="@layout/activity_mode_battery_save_mode_item"/>
+    <include
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/mode_activity_margin"
+        layout="@layout/activity_mode_sleep_mode_item"/>
+
+    <include
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/mode_activity_margin"
+        layout="@layout/activity_mode_my_mode_item"/>
+
+</LinearLayout>

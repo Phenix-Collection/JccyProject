@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:mrl_rippleColor="@color/ripple_color_black"
+    app:mrl_rippleDuration="500"
+    app:mrl_rippleAlpha="0.1"
+    android:padding="8dp">
+    <LinearLayout
+        android:id="@+id/hide_system_spp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hide_system_app"/>
+    </LinearLayout>
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

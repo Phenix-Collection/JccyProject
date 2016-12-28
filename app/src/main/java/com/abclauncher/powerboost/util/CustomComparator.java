@@ -1,0 +1,18 @@
+package com.abclauncher.powerboost.util;
+
+import com.abclauncher.powerboost.bean.AppInfo;
+
+import java.util.Comparator;
+
+/**
+ * Created by sks on 2016/12/22.
+ */
+
+public class CustomComparator implements Comparator<AppInfo> {
+    @Override
+    public int compare(AppInfo o1, AppInfo o2) {
+        return o1.cpuTime > o2.cpuTime ? -1 : 1;
+    }
+}
+
+

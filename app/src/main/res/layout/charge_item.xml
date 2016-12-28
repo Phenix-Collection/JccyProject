@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:mrl_rippleColor="@color/ripple_color_black"
+    app:mrl_rippleAlpha="0.1"
+    app:mrl_ripple_type="type_round"
+    app:mrl_rippleDimension="5dp">
+    <TextView
+        android:id="@+id/charge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_black"
+        android:text="@string/charge"
+        android:drawableTop="@drawable/ic_charge"
+        android:drawablePadding="10dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
+        android:textSize="14sp"
+
+        />
+
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

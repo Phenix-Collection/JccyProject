@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="text_color_white">#fafafa</color>
+    <color name="text_color_gray">@android:color/darker_gray</color>
+
+    <color name="text_color_black">#393636</color>
+    <color name="menu_text_color">#ff323232</color>
+
+    <color name="bg_white">#fafafa</color>
+    <color name="bg_light_gray">#ECECEC</color>
+    <color name="menu_item_pressed_color">#09000000</color>
+
+    <color name="ripple_color_black">#04000000</color>
+    <color name="ripple_color_light">#09ffffff</color>
+
+    <color name="rank_activity_divider_color">@color/text_color_gray</color>
+    <color name="rank_activity_progress_color">@color/colorPrimary</color>
+    <color name="rank_activity_progress_bg_color">@color/text_color_gray</color>
+</resources>
