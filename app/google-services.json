@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "931534863056",
+    "project_id": "firebase-power-plus"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931534863056:android:5da3614618ebe9a7",
+        "android_client_info": {
+          "package_name": "com.batterysaver.powerplus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVT9uPtR99I8cfV8aDux0Mtis6Uqpl3as"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-90240150-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

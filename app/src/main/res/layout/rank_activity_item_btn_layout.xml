@@ -3,7 +3,7 @@
 <com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
-    android:layout_width="wrap_content"
+    android:layout_width="64dp"
     android:layout_gravity="center_vertical"
     android:layout_height="24dp"
     android:layout_marginRight="8dp"
@@ -18,13 +18,12 @@
 
     <com.abclauncher.powerboost.view.NormalTextView
         android:id="@+id/stop"
-        android:layout_width="wrap_content"
+        android:layout_width="64dp"
         android:layout_height="24dp"
         android:paddingTop="2dp"
         android:gravity="center"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:text="VIEW"
+        android:textSize="12sp"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary" />
 </com.abclauncher.powerboost.view.MaterialRippleLayout>

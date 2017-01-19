@@ -244,6 +244,7 @@ public class MemoryCleanActivity extends BaseActivity {
                     getResources().getColor(R.color.blue_end_color));
         }
         startScanAppAsync();
+        //int i = 10 / 0;
 
         CleanTipsNotification.cancelNotification(getApplicationContext());
     }
@@ -381,17 +382,17 @@ public class MemoryCleanActivity extends BaseActivity {
                         }
                         initExtendedList();
                     }
-                }, 700);
-                mHandler.postDelayed(getStopRadarRunnable(),800);
+                }, 900);
+                mHandler.postDelayed(getStopRadarRunnable(),1000);
 
 
                 int count = getCount();
                 for (int i = 0; i < count; i++) {
-                    notifyCleanProcess(i , 800 * (i + 1));
+                    notifyCleanProcess(i , 1000 * (i + 1));
                 }
 
                 if (mBgShouldAnim) {
-                    mHandler.postDelayed(colorAnim,800);
+                    mHandler.postDelayed(colorAnim,1000);
                 }
 
             }
@@ -502,7 +503,7 @@ public class MemoryCleanActivity extends BaseActivity {
             }
         });
         cleanDoneCircleAnim.setTarget(mCleanResultDoneTwo);
-        cleanDoneCircleAnim.setDuration(600);
+        cleanDoneCircleAnim.setDuration(800);
 
 
         AnimatorSet animatorSet = new AnimatorSet();
@@ -665,7 +666,7 @@ public class MemoryCleanActivity extends BaseActivity {
                         public void run() {
                             showAdResultLayout();
                         }
-                    }, 50);
+                    }, 100);
 
                 }
             }

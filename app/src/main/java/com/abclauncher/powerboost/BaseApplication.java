@@ -25,7 +25,6 @@ public class BaseApplication extends Application {
         AnalyticsHelper.prepareAnalytics(getApplicationContext());
         Branch.getAutoInstance(getApplicationContext());
         FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
         Thread.setDefaultUncaughtExceptionHandler(restartHandler);
 
     }

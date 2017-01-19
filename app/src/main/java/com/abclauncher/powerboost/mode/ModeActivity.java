@@ -203,7 +203,7 @@ public class ModeActivity extends BaseActivity {
 
     private void showProgressDialog() {
         mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("switching...");
+        mProgressDialog.setMessage(getResources().getString(R.string.switching));
         mProgressDialog.show();
     }
 

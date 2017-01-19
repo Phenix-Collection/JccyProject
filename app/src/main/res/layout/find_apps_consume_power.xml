@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/find_apps_consume_power_container"
     android:visibility="invisible"
     android:layout_gravity="center">
     <com.abclauncher.powerboost.view.NormalTextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/problem_found"
         android:textColor="@color/text_color_white"
+        android:gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"/>
-   <!-- <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/found_apps_consume_power"
-        android:textColor="@color/text_color_white"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"/>-->
 
 </LinearLayout>

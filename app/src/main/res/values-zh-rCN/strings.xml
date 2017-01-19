@@ -122,4 +122,5 @@
     <string name="settings_close_lock_screen_dialog_title">禁用智能充电</string>
     <string name="settings_close_lock_screen_dialog_des">一旦禁用, 将停止监控充电过程, 是否禁用?</string>
     <string name="ok">确认</string>
+    <string name="switching">切换中...</string>
 </resources>
