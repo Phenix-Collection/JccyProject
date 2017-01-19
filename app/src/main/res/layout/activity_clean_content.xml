@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+        <com.abclauncher.powerboost.view.MaterialRippleLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:mrl_ripple_type="type_round"
+            app:mrl_rippleColor="@color/ripple_color_light"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDimension="0dp">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_white_24dp"
+                android:padding="10dp"/>
+
+        </com.abclauncher.powerboost.view.MaterialRippleLayout>
+        <com.abclauncher.powerboost.view.MediumTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/clean_memory_title"
+            android:textColor="@color/text_color_white"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/clean_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <include layout="@layout/include_memory_clean_head"
+                android:id="@+id/memory_clean_anim_layout" />
+
+            <include layout="@layout/include_memory_clean_content"/>
+
+        </LinearLayout>
+
+        <View
+            android:visibility="gone"
+            android:id="@+id/view_anim_mask"
+            android:background="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include layout="@layout/include_memory_clean_result"
+            android:id="@+id/memory_clean_result_layout"/>
+        <include layout="@layout/clean_ad_layout"/>
+
+    </FrameLayout>
+</LinearLayout>

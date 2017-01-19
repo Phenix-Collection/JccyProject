@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/head_anim_layout"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/memory_clean_radar_left_margin">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/memory_clean_radar_left_margin">
+
+        <!--<com.abclauncher.powerboost.clean.view.RadarView
+            android:id="@+id/radar_anim_view"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            app:RadarBorderWidth="2dp"/>-->
+        <FrameLayout
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:id="@+id/radar_container">
+            <ImageView
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:src="@drawable/radar_three"/>
+            <ImageView
+                android:id="@+id/radar_two"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:src="@drawable/radar_two"/>
+            <ImageView
+                android:id="@+id/radar_one"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:src="@drawable/radar_one"/>
+        </FrameLayout>
+
+        <com.abclauncher.powerboost.clean.view.BoostAnimView
+            android:id="@+id/boost_view"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/clean_memory_head_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_left"
+                android:fontFamily="sans-serif"
+                android:textColor="#b2ffffff"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:id="@+id/usage_time_hour_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#ffffff"
+                    android:textSize="36sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hour"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:id="@+id/usage_time_minutes_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#ffffff"
+                    android:textSize="36sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minutes"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+</LinearLayout>

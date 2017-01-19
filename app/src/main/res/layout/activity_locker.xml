@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wave="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_lock">
+
+    <include
+        android:id="@+id/time_layout"
+        layout="@layout/include_time_locker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="15%"
+        app:layout_widthPercent="100%"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="100%"
+        android:layout_below="@+id/time_layout">
+        <include layout="@layout/locker_screen_battery_item"/>
+    </FrameLayout>
+
+
+
+    <include
+        android:id="@+id/slide_layout"
+        layout="@layout/include_slide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="7%"
+        app:layout_widthPercent="100%"
+        android:layout_alignParentBottom="true"/>
+
+    <include
+        android:id="@+id/smart_locker_ad_cl"
+        layout="@layout/include_smart_locker_ad"
+        android:layout_above="@id/slide_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="36%"
+        app:layout_widthPercent="100%" />
+
+    <include
+        layout="@layout/locker_battery_state_item_layout"
+        android:layout_above="@id/smart_locker_ad_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="12%"
+        app:layout_widthPercent="100%" />
+</android.support.percent.PercentRelativeLayout>

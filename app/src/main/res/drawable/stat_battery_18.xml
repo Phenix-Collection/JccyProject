@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/battery_bkg" />
+    <item android:drawable="@drawable/battery_digit_18" />
+    <item android:left="5.5dip" android:right="13.5dip">
+        <bitmap android:src="@drawable/battery_battery_digit_red_1" />
+    </item>
+    <item android:left="12.5dip" android:right="6.5dip">
+        <bitmap android:src="@drawable/battery_battery_digit_red_8" />
+    </item>
+</layer-list>

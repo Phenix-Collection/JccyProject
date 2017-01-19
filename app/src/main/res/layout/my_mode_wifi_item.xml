@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_mode_wifi_item"
+    app:mrl_rippleColor="@color/ripple_color_light"
+    app:mrl_rippleAlpha="0.05">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:drawableLeft="@drawable/ic_wifi"
+            android:text="@string/wifi"
+            style="@style/my_mode_text_style"
+            />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/wifi_switch"
+           style="@style/SwitchStyle"/>
+    </LinearLayout>
+
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

@@ -8,7 +8,7 @@
     app:mrl_ripple_type="type_round"
     android:id="@+id/rank"
     app:mrl_rippleDimension="5dp">
-    <TextView
+    <com.abclauncher.powerboost.view.NormalTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/text_color_black"

@@ -4,7 +4,28 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="divider_height">.5dp</dimen>
+    <dimen name="divider_height">8dp</dimen>
 
     <dimen name="mode_activity_margin">10dp</dimen>
+    <dimen name="dialog_width">280dp</dimen>
+    <dimen name="default_radar_width">100dp</dimen>
+    <dimen name="default_radar_height">100dp</dimen>
+    <dimen name="memory_clean_radar_left_margin">27dp</dimen>
+
+    <dimen name="battery_container_end_x">30dp</dimen>
+    <dimen name="battery_container_end_y">104dp</dimen>
+    <dimen name="battery_des_end_x">200dp</dimen>
+    <dimen name="battery_des_end_y">104dp</dimen>
+
+    <dimen name="battery_status_end_y">214dp</dimen>
+
+    <dimen name="clean_done_image_end_x">45dp</dimen>
+    <dimen name="clean_done_image_end_y">104dp</dimen>
+
+    <dimen name="clean_done_tv_end_x">160dp</dimen>
+    <dimen name="clean_done_tv_end_y">116dp</dimen>
+
+    <dimen name="indicator_min_radius">3dp</dimen>
+    <dimen name="indicator_max_radius">5dp</dimen>
+    <dimen name="circle_space">8dp</dimen>
 </resources>

@@ -6,8 +6,8 @@
     app:mrl_rippleColor="@color/ripple_color_black"
     app:mrl_rippleAlpha="0.1"
     app:mrl_ripple_type="type_round"
-    app:mrl_rippleDimension="5dp">
-    <TextView
+    app:mrl_rippleDimension="0dp">
+    <com.abclauncher.powerboost.view.NormalTextView
         android:id="@+id/charge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

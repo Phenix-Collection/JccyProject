@@ -11,6 +11,7 @@ import java.util.Comparator;
 public class CustomComparator implements Comparator<AppInfo> {
     @Override
     public int compare(AppInfo o1, AppInfo o2) {
+        if (o1 == o2) return 0;
         return o1.cpuTime > o2.cpuTime ? -1 : 1;
     }
 }

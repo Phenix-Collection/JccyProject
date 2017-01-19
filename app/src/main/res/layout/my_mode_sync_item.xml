@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_mode_synchronous_item"
+    app:mrl_rippleColor="@color/ripple_color_light"
+    app:mrl_rippleAlpha="0.05">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <com.abclauncher.powerboost.view.NormalTextView
+            style="@style/my_mode_text_style"
+            android:text="@string/synchronous"
+            android:drawableLeft="@drawable/ic_synchronous" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/synchronous_switch"
+            style="@style/SwitchStyle"/>
+    </LinearLayout>
+
+</com.abclauncher.powerboost.view.MaterialRippleLayout>

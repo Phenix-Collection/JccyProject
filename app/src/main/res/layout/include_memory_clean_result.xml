@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ic_clean_done_two"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:visibility="gone"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_clean_done_two" />
+        <ImageView
+            android:id="@+id/ic_clean_done"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_clean_done" />
+
+    <LinearLayout
+        android:id="@+id/ic_clean_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="230dp">
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:id="@+id/tv_result_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_white"
+            android:text="@string/clean_result_des"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal">
+            <LinearLayout
+                android:id="@+id/extended_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:id="@+id/extended_mins_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_white"
+                    android:text="44"
+                    android:textSize="40sp"/>
+                <com.abclauncher.powerboost.view.NormalTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/text_color_white"
+                    android:text="@string/clean_result_value"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/time_left_container"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:id="@+id/result_usage_time_hour_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hour"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:id="@+id/result_usage_time_minutes_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp" />
+                <com.abclauncher.powerboost.view.LightTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minutes"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+   <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:background="#f5f5f5"
+        android:layout_weight="5"
+        android:visibility="gone">
+        <include layout="@layout/include_memory_clean_ad" />
+    </RelativeLayout>-->
+</FrameLayout>

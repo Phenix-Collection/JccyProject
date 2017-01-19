@@ -35,11 +35,11 @@ public class AudioUtil {
     }
 
     public int getCurrentRingVolume(){
-        return mAudioManager.getStreamVolume(AudioManager.STREAM_RING);
+        return mAudioManager.getStreamVolume(AudioManager.STREAM_RING) % 10 * 10;
     }
 
     public int getPercentRingVolume(){
-        return (int) (getCurrentRingVolume() * 100.0f / getMaxRingVolume());
+        return (int) (getCurrentRingVolume() * 100.0f / getMaxRingVolume()) % 10 * 10;
     }
 
     public void setMediaVolume(int percent){
@@ -57,10 +57,23 @@ public class AudioUtil {
     }
 
     public int getPercentMediaVolume(){
-        return (int) (getCurrentMediaVolume() * 100.0f / getMaxMediaVolume());
+        return (int) (getCurrentMediaVolume() * 100.0f / getMaxMediaVolume()) % 10 * 10;
     }
 
     public void setRingMode(int mode) {
         mAudioManager.setRingerMode(mode);
     }
+
+    public int getRingMode(){
+        return mAudioManager.getRingerMode();
+    }
+
+    public boolean isVibrate(){
+        return mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE;
+    }
+
+    public boolean isSilent(){
+        return mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_SILENT;
+    }
+
 }

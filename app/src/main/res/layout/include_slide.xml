@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slide_main_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.romainpiel.shimmer.ShimmerTextView
+        android:id="@+id/unlock_tips_text"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="@string/charging_screen_slide_to_enter"
+        android:textColor="@color/unlock_tips_text_color"
+        android:textSize="18sp" />
+</FrameLayout>

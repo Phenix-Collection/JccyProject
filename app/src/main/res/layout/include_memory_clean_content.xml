@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="5">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp">
+        <LinearLayout
+            android:id="@+id/clean_app_head"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_height="wrap_content">
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:textColor="@color/battery_end_color"
+                android:textSize="18sp"
+                android:id="@+id/tv_num_app_clean"
+                android:text="0"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/tv_app_clean_string"
+                android:textColor="#dadada"
+                android:text="@string/scan_memory"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textSize="14sp"
+                android:lines="1"
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:gravity="center"
+            android:layout_below="@id/clean_app_head"
+            android:layout_gravity="center"
+            android:scrollbars="none"
+            android:id="@+id/cleaned_app_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</LinearLayout>

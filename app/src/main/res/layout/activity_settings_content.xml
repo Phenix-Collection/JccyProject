@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="#44ffffff"/>
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="@string/notification"
+        android:textColor="@color/text_color_white"
+        android:background="#22ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="#44ffffff"/>
+    <include layout="@layout/settings_status_bar_item"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#44ffffff"/>
+    <include layout="@layout/settings_low_battery_item"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#44ffffff"/>
+    <include layout="@layout/settings_fully_charged_item"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#44ffffff"/>
+    <include layout="@layout/settings_over_charged_item"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="#44ffffff"/>
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="@string/charge_settings"
+        android:textColor="@color/text_color_white"
+        android:background="#22ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="#44ffffff"/>
+
+    <include layout="@layout/settings_auto_launch_item"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#44ffffff"/>
+    <include layout="@layout/settings_battery_screen_item"/>
+
+</LinearLayout>

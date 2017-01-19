@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="80dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_white"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textSize="16sp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:text="@string/media_volume"
+            android:drawableLeft="@drawable/ic_media"/>
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:id="@+id/my_mode_media_volume_value"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="@color/text_color_light_gray"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="90%"/>
+    </LinearLayout>
+    <SeekBar
+        android:id="@+id/media_volume_seek_bar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="54dp"
+        android:max="10"
+        />
+</LinearLayout>

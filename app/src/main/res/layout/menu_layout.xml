@@ -6,7 +6,7 @@
     android:paddingBottom="8dp"
     android:paddingTop="8dp"
     android:background="@drawable/menu_bg">
-    <include layout="@layout/white_list_item"/>
+   <!-- <include layout="@layout/white_list_item"/>-->
     <include layout="@layout/settings_item"/>
     <include layout="@layout/share_item"/>
     <include layout="@layout/rate_item"/>

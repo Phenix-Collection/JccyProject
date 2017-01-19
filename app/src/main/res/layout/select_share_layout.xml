@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="330dp"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="280dp"
+        android:layout_height="330dp"
+        android:orientation="vertical">
+
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/share_with"
+            android:textColor="@color/text_color_black"
+            android:textSize="20sp"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </android.support.v4.view.ViewPager>
+
+
+        <com.abclauncher.powerboost.share.ShareIndicator.ShareIndicator
+            android:id="@+id/share_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+        </com.abclauncher.powerboost.share.ShareIndicator.ShareIndicator>
+
+
+        <com.abclauncher.powerboost.view.MaterialRippleLayout android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="right"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:mrl_rippleColor="@color/ripple_color_black"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDimension="0dp"
+            app:mrl_rippleHoverDuration="600">
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/share_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="#898d98"
+                android:textSize="16sp"/>
+        </com.abclauncher.powerboost.view.MaterialRippleLayout>
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:id="@+id/share_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

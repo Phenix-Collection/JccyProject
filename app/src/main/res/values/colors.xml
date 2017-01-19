@@ -1,24 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#3b78e9</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@color/battery_end_color</color>
 
 
     <color name="text_color_white">#fafafa</color>
     <color name="text_color_gray">@android:color/darker_gray</color>
+    <color name="text_color_light_gray">#84ffffff</color>
 
     <color name="text_color_black">#393636</color>
     <color name="menu_text_color">#ff323232</color>
 
     <color name="bg_white">#fafafa</color>
-    <color name="bg_light_gray">#ECECEC</color>
+    <color name="bg_light_gray">#44ffffff</color>
     <color name="menu_item_pressed_color">#09000000</color>
 
-    <color name="ripple_color_black">#04000000</color>
+    <color name="ripple_color_black">#03000000</color>
     <color name="ripple_color_light">#09ffffff</color>
 
-    <color name="rank_activity_divider_color">@color/text_color_gray</color>
+    <color name="rank_activity_divider_color">@android:color/transparent</color>
     <color name="rank_activity_progress_color">@color/colorPrimary</color>
-    <color name="rank_activity_progress_bg_color">@color/text_color_gray</color>
+    <color name="rank_activity_progress_bg_color">#11000000</color>
+    <color name="unlock_tips_text_color">#386bcf</color>
+
+    <color name="alpha_10p">#1affffff</color>
+    <color name="ad_install_btn_color">#26b24c</color>
+    <color name="ad_summary_color">#FFFFFFFF</color>
+
+    <color name="charging_pb_bg_color">#33ffffff</color>
+    <color name="white">#59ffffff</color>
+
+    <color name="memory_color_head_bg">#46bf59</color>
+    <color name="ad_card_desc_color">#ff747474</color>
+
+
+    <color name="share_font_color">#e1e5eb</color>
+    <color name="share_indicator_color">@color/colorPrimary</color>
+    <color name="scan_warn_anim_color">#b90d0d</color>
+
+    <color name="setting_common_bg">#ffffffff</color>
+
+    <color name="feedback_screenshot_btn_pressed_color">#22ffffff</color>
+
+    <color name="blue_start_color">#54d7ff</color>
+    <color name="blue_end_color">#3668e5</color>
+
+    <color name="red_start_color">#ffb41f</color>
+    <color name="red_end_color">#f26456</color>
+
+
+    <color name="btn_start_color">#fff66e20</color>
+    <color name="btn_end_color">#fffbd45f</color>
+
+    <color name="btn_shadow_start_color">#44000000</color>
+    <color name="btn_shadow_center_color">#66000000</color>
+    <color name="btn_shadow_end_color">#44fbd45f</color>
+
+
+    <color name="battery_end_color">#7dfdff</color>
+    <color name="battery_start_color">#68c9ff</color>
+    <color name="mode_item_bg_color">#0effffff</color>
+    <color name="notification_color">#44000000</color>
 </resources>

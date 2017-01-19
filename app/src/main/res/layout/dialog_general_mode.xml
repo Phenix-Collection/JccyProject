@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:paddingTop="24dp"
-    android:paddingBottom="8dp">
-    <TextView
-        android:id="@+id/title"
+    android:orientation="vertical" android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    android:paddingTop="24dp">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/text_color_black"
-        android:textSize="18sp"
-        android:text="@string/general_mode"
-        android:layout_marginBottom="8dp"/>
-    <include layout="@layout/mode_brightness_item"/>
-    <include layout="@layout/screen_out_item"/>
-    <include layout="@layout/mode_brightness_item"/>
-    <include layout="@layout/mode_brightness_item"/>
+        android:orientation="vertical"
+        android:paddingLeft="24dp">
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:id="@+id/title"
+            android:layout_width="@dimen/dialog_width"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_black"
+            android:textSize="18sp"
+            android:text="@string/general_mode"
+            android:layout_marginBottom="20dp"/>
+        <LinearLayout
+            android:layout_width="@dimen/dialog_width"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:orientation="vertical">
+            <include layout="@layout/mode_brightness_item"/>
+            <include layout="@layout/screen_out_item"/>
+            <include layout="@layout/ringer_item"/>
+            <include layout="@layout/vibrate_item"/>
+            <include layout="@layout/wifi_item"/>
+            <!--<include layout="@layout/gps_item"/>-->
+            <include layout="@layout/bluetooth_item"/>
+            <include layout="@layout/mobile_data_item"/>
+            <include layout="@layout/sync_item"/>
+            <include layout="@layout/haptic_feedback_item"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal">
+        <include layout="@layout/mode_cancel_button"/>
+        <include layout="@layout/mode_ok_button"/>
+
+    </LinearLayout>
 
 </LinearLayout>

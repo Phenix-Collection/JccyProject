@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">电量大师</string>
+    <string name="facebook_app_id">862014030568016</string>
+    <string name="action_settings">设置</string>
+    <string name="action_share">分享</string>
+    <string name="action_rate">评分</string>
+    <string name="action_feedback">反馈</string>
+    <string name="action_about_us">关于我们</string>
+    <string name="mode">模式</string>
+    <string name="mode_title">省电模式</string>
+    <string name="charge">充电</string>
+    <string name="charge_title">阶段充电</string>
+    <string name="rank">排行</string>
+    <string name="rank_title">耗电排行</string>
+    <string name="hide_system_app">隐藏系统应用</string>
+    <string name="view">查看</string>
+    <string name="general_mode">常规模式</string>
+    <string name="general_mode_des">推荐电量充足时选择</string>
+    <string name="battery_save_mode">节电模式</string>
+    <string name="battery_save_mode_des">推荐低电量时选择</string>
+    <string name="sleep_mode">睡眠模式</string>
+    <string name="sleep_mode_des">推荐夜间选择</string>
+    <string name="my_mode">我的模式</string>
+    <string name="my_mode_des">保存当前设置</string>
+    <string name="brightness">屏幕亮度</string>
+    <string name="brightness_value_auto">自动</string>
+    <string name="brightness_value_low">10%</string>
+    <string name="screen_timeout">熄屏时间</string>
+    <string name="off">关闭</string>
+    <string name="on">打开</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="gps">定位</string>
+    <string name="wifi">无线网络</string>
+    <string name="mobile_data">移动数据</string>
+    <string name="synchronous">自动同步</string>
+    <string name="haptic_feedback">按键反馈</string>
+    <string name="cancel">取消</string>
+    <string name="apply">应用</string>
+    <string name="ringer">响铃</string>
+    <string name="ringer_silent">静音</string>
+    <string name="vibrate">震动</string>
+    <string name="media_volume">媒体音量</string>
+    <string name="my_mode_settings_warn_des">修改尚未保存,是否确认退出?</string>
+    <string name="save">确认</string>
+    <string name="optimize">一键省电</string>
+    <string name="usage_time">剩余使用时间</string>
+    <string name="charging_time">剩余充电时间</string>
+    <string name="trickle_charging_time">剩余涓流充电时间 </string>
+    <string name="charged_completed">充电完成</string>
+    <string name="charge_tips"><![CDATA[启动电池状态监控以防止过充]]></string>
+
+    <string-array name="screen_out_time_values">
+        <item>15s</item>
+        <item>30s</item>
+        <item>1m</item>
+        <item>5m</item>
+        <item>10m</item>
+    </string-array>
+
+    <string name="ad_tag_text">AD</string>
+
+    <string name="scan_memory">个运行应用正在耗电</string>
+    <string name="memory_clean_app_text">个应用已被清理</string>
+    <string name="time_left">剩余使用时间</string>
+    <string name="charging_remaining">剩余充电时间</string>
+    <string name="battery_progress">电量剩余</string>
+    <string name="speed">快速充电</string>
+    <string name="continuous">持续充电</string>
+    <string name="trickle">涓流充电</string>
+    <string name="clean_result_des">已延长待机时间</string>
+    <string name="clean_result_value">分钟</string>
+    <string name="app_des">More than a battery saver</string>
+
+    <string name="battery_refresh_action">com.abclauncher.powerboost.battery.refresh</string>
+    <string name="notification">通知提醒</string>
+    <string name="settings_status_bar">展示状态栏</string>
+    <string name="settings_low_battery">低电量提醒</string>
+    <string name="settings_fully_charged">充电完成提醒</string>
+    <string name="settings_over_charged">过充提醒</string>
+    <string name="charge_settings">充电设置</string>
+    <string name="settings_charge_lock_screen">充电锁屏(可能展示合作内容)</string>
+    <string name="settings_auto_launch_des">充电时自动打开电量大师</string>
+    <string name="low_battery_warn">点击延长待机时间</string>
+    <string name="fully_charged_tips">充电完成, 请断开充电器</string>
+    <string name="over_charged_tips">充电完成, 请断开充电器</string>
+
+
+
+    <string name="share_with">分享至</string>
+
+
+
+    <string name="rate_us_like_abc_cooler">评分</string>
+    <string name="rate_us_des">您的支持将鼓励我们持续改进</string>
+    <string name="rate_us_dislike">不喜欢</string>
+    <string name="rate">评分</string>
+    <!-- <string name="cancel">取消</string>-->
+
+    <string name="menu_feedback_email">请输入邮箱</string>
+    <string name="menu_feedback_submit">提交</string>
+    <string name="menu_feedback_submit_success">感谢您的反馈</string>
+    <string name="menu_feedback_submit_fail">反馈发送失败,请检查您的网络连接</string>
+    <string name="menu_feedback_submit_dialog">正在提交...</string>
+    <string name="minutes">M</string>
+    <string name="hour">H</string>
+    <string name="press_again">再次点击即可退出</string>
+    <string name="problem_found">发现异常耗电情况!</string>
+    <string name="scaning">正在扫描...</string>
+    <string name="stop">停止</string>
+    <string name="charging_screen_slide_to_enter"><![CDATA[>> 向右滑动解锁]]></string>
+    <string name="charging_time_des">剩余充电时间 </string>
+    <string name="fully_charged_title">充电完成</string>
+    <string name="low_battery_title">电池电量过低</string>
+    <string name="over_charged_title">电池充电过度</string>
+    <string name="version">V</string>
+    <string name="clean_memory_title">省电清理</string>
+
+    <string name="points">...</string>
+    <string name="notification_clean_tips">个应用正在耗电</string>
+
+    <string name="later">稍后</string>
+    <string name="settings_close_lock_screen_dialog_title">禁用智能充电</string>
+    <string name="settings_close_lock_screen_dialog_des">一旦禁用, 将停止监控充电过程, 是否禁用?</string>
+    <string name="ok">确认</string>
+</resources>

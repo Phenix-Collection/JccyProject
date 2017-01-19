@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
@@ -15,37 +16,215 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+
+        <activity android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"/>
+            </intent-filter>
+
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="batterysaver"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+          <!--  <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
 
         <activity android:name=".RankActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/NormalStyle"
             android:label="@string/rank"
             />
+
+        <activity android:name=".AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle"
+            android:label="@string/rank"
+            />
+
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle"
+            android:label="@string/rank"
+            />
+
+        <activity android:name=".ChargeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle"
+            android:label="@string/charge"
+            android:taskAffinity="com.abclauncher.powerboost.charge"
+            />
+
+        <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle" />
+
         <activity android:name=".mode.ModeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/NormalStyle"
             android:label="@string/mode"/>
 
+        <activity android:name=".mode.MyModeSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle"
+            android:label="@string/mode"/>
+
+        <activity
+            android:name=".locker.SmartLockerActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.abclauncher.power.boost.lock"
+            android:theme="@style/BatteryLockScreenStyle"/>
+
+        <service
+            android:name=".service.BatteryService"
+            android:enabled="true"
+            android:exported="true"
+            />
+
+        <receiver android:name=".notification.cleantips.DeleteCleanTipsReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.clean.tips.deleted"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.cleantips.ClickCleanTipsReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.clean.tips.clicked"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.lowpower.ClickLowBatteryReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.low.power.clicked"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.lowpower.DeleteLowPowerReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.low.power.deleted"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.verylowpower.ClickVeryLowBatteryReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.very.low.power.clicked"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.verylowpower.DeleteVeryLowPowerReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.very.low.power.deleted"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.fullycharged.ClickFullyChargedReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.fully.charged.clicked"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.fullycharged.DeleteFullyChargedReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.fully.charged.deleted"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.overcharged.ClickOverChargedReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.over.charged.clicked"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".notification.overcharged.DeleteOverChargedReceiver">
+            <intent-filter>
+                <action android:name="com.abclauncher.powerboost.over.charged.deleted"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.abclauncher.powerboost.receiver.BootCompletedReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".daemon.DaemonService"
+            android:exported="false"/>
+        <service
+            android:name=".daemon.JobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <activity
+            android:name=".clean.MemoryCleanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NormalStyle">
+        </activity>
+
+
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_ehynWuwwrBv1SjctnM6x8fmaFyl56W14"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <receiver
+            android:name=".share.CustomInstallReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@ public class BluetoothUtil {
 
     public boolean setBluetooth(boolean enable) {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null) return false;
         boolean isEnabled = bluetoothAdapter.isEnabled();
         if (enable && !isEnabled) {
             return bluetoothAdapter.enable();
@@ -38,11 +39,11 @@ public class BluetoothUtil {
     }
 
     //获取蓝牙当前状态
-    private int getBluetoothStatus() {
+    public boolean getBluetoothStatus() {
         BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
         if (defaultAdapter != null) {
-            return defaultAdapter.getState();
+            return defaultAdapter.getState() == BluetoothAdapter.STATE_ON;
         }
-        return BluetoothAdapter.STATE_OFF;
+        return false;
     }
 }

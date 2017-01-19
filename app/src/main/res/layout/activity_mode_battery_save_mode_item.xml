@@ -5,8 +5,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="@drawable/menu_bg"
-    app:mrl_rippleColor="@color/ripple_color_black"
+    android:background="@drawable/mode_item_bg"
+    app:mrl_rippleColor="@color/ripple_color_light"
     app:mrl_ripple_background_allowed="false"
     app:mrl_rippleAlpha="0.05">
     <LinearLayout
@@ -28,21 +28,21 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_gravity="center_vertical">
-            <TextView
+            <com.abclauncher.powerboost.view.NormalTextView
                 android:text="@string/battery_save_mode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:textColor="@color/text_color_black"/>
+                android:textColor="@color/text_color_white"/>
 
-            <TextView
+            <com.abclauncher.powerboost.view.NormalTextView
                 android:text="@string/battery_save_mode_des"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textSize="14sp"
                 android:singleLine="true"
-                android:textColor="@color/text_color_gray"/>
+                android:textColor="@color/text_color_light_gray"/>
 
         </LinearLayout>
         <com.abclauncher.powerboost.view.MaterialRippleLayout
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|right"
             app:mrl_ripple_type="type_round"
-            app:mrl_rippleColor="@color/ripple_color_black"
+            app:mrl_rippleColor="@color/ripple_color_light"
             app:mrl_rippleAlpha="0.1"
             app:mrl_rippleDimension="0dp">
             <ImageView

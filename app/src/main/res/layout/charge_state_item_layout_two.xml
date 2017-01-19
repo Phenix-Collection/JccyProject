@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/text_color_white"
+        android:text="@string/speed"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent"
+        android:layout_weight="1"/>
+
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/tv_continuous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/text_color_white"
+        android:text="@string/continuous"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent"
+        android:layout_weight="1"/>
+
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/tv_trickle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/text_color_white"
+        android:text="@string/trickle"/>
+
+</LinearLayout>

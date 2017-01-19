@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/btn_optimize_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/optimize_btn_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.abclauncher.powerboost.view.MaterialRippleLayout
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        app:mrl_rippleRoundedCorners="20dp"
+        app:mrl_rippleColor="@color/ripple_color_light"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleOverlay="true"
+        app:mrl_ripple_background_allowed="false"
+        android:id="@+id/optimize_btn"
+        >
+        <com.abclauncher.powerboost.view.MediumTextView
+            android:id="@+id/optimize_text"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:text="@string/optimize"
+            android:textColor="@color/text_color_white"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textSize="18sp" />
+    </com.abclauncher.powerboost.view.MaterialRippleLayout>
+</FrameLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.abclauncher.powerboost.view.LightTextView
+        android:id="@+id/simple_locker_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp"
+        android:shadowColor="#66000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="6"
+        android:singleLine="true"
+        android:text="20:08"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/simple_locker_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#66000000"
+        android:paddingLeft="16dp"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="7月18日 星期一"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+</LinearLayout>

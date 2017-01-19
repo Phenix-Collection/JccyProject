@@ -7,12 +7,22 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.abclauncher.powerboost.bean.AppInfo;
+import com.abclauncher.powerboost.clean.utils.CleanUtil;
+import com.abclauncher.powerboost.mode.util.AudioUtil;
+import com.abclauncher.powerboost.mode.util.BluetoothUtil;
+import com.abclauncher.powerboost.mode.util.BrightnessUtil;
+import com.abclauncher.powerboost.mode.util.WifiUtil;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
@@ -39,6 +49,10 @@ public class Utils {
     private static List<AppInfo> sAllRunningApps = new ArrayList<>();
     private static List<AppInfo> sNonSystemAppList = new ArrayList<>();
     private static HashMap<String, AppInfo> sAllRunningAppsMap = new HashMap<>();
+    private static long FULL_USAGE_TIME = 1000 * 60 * 60 * 36;
+    private static long WIFI_TIME = 1000 * 60 * 100;
+    private static long BRIGHTNESS_TIME = 1000 * 60 * 100;
+    private static long BLUETOOTH_TIME = 1000 * 60 * 60;
 
     public static long getAppProcessTime(int pid) {
         FileInputStream in = null;
@@ -254,5 +268,86 @@ public class Utils {
                     | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             context.startActivity(intent);
         }
+    }
+
+    public static long getUsageTime(Context context, int percent) {
+        if (CleanUtil.shouldCleanMemory(context)){
+            long currentTime = (long) (FULL_USAGE_TIME * percent * 1.f / 100);
+            if (WifiUtil.getInstance(context).getWifiOpened()) {
+                currentTime = (long) (currentTime - WIFI_TIME * 1.f * percent / 100);
+            } else {
+                currentTime = (long) (currentTime + WIFI_TIME * 1.f * percent / 100);
+            }
+            if (AudioUtil.getInstance(context).getRingMode() != AudioManager.RINGER_MODE_SILENT) {
+                currentTime = (long) (currentTime - WIFI_TIME * 1.f * percent / 100);
+            }else {
+                currentTime = (long) (currentTime + WIFI_TIME * 1.f * percent / 100);
+            }
+            int brightness = BrightnessUtil.getInstance(context).getCurBrightnessPercent() - 20;
+            long brightnessTime = (long) (BRIGHTNESS_TIME * brightness * 1.f /100);
+            currentTime = currentTime - brightnessTime;
+            if (BluetoothUtil.getInstance(context).getBluetoothStatus()) {
+                currentTime = (long) (currentTime - BLUETOOTH_TIME * percent * 1.f /100);
+            } else {
+                currentTime = (long) (currentTime +  BLUETOOTH_TIME * percent * 1.f /100);
+            }
+
+            SettingsHelper.setUsageTime(context, currentTime);
+            return currentTime;
+        } else {
+            return SettingsHelper.getUsageTime(context);
+        }
+    }
+
+    public static String getUsageHourValue(long time){
+        int hour = (int) (time * 1.f/ (1000 * 60 * 60));
+        if (hour == 0) {
+            return "00";
+        } else if (hour < 10){
+            return "0" + hour;
+        } else {
+            return hour + "";
+        }
+    }
+
+    public static String getUsageMinutesValue(long time){
+        int hour = (int) (time * 1.f/ (1000 * 60 * 60));
+        int mins = (int) ((time - hour * 1000 * 60 * 60) / (1000 * 60));
+        if (mins == 0) {
+            return "00";
+        } else if (mins < 10){
+            return "0" + mins;
+        } else {
+            return mins + "";
+        }
+    }
+
+    public static void addShortCutScreen(Context context, String appName, Intent actionIntent,
+                                         boolean allowRepeat, Bitmap icon){
+        Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+        intent.putExtra("duplicate", allowRepeat);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appName);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, icon);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);
+        context.sendBroadcast(intent);
+    }
+
+
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+        // 取 drawable 的长宽
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+
+        // 取 drawable 的颜色格式
+        Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                : Bitmap.Config.RGB_565;
+        // 建立对应 bitmap
+        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
+        // 建立对应 bitmap 的画布
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, w, h);
+        // 把 drawable 内容画到画布中
+        drawable.draw(canvas);
+        return bitmap;
     }
 }

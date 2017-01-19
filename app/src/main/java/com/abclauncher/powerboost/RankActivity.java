@@ -2,7 +2,6 @@ package com.abclauncher.powerboost;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 
 import com.abclauncher.powerboost.bean.AppInfo;
 import com.abclauncher.powerboost.util.Utils;
+import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.HorizontalProgress;
 import com.abclauncher.powerboost.view.RecyclerViewDecoration;
 
@@ -27,7 +27,7 @@ import butterknife.OnClick;
  * Created by sks on 2016/12/22.
  */
 
-public class RankActivity extends AppCompatActivity{
+public class RankActivity extends BaseActivity{
 
     @InjectView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -62,7 +62,7 @@ public class RankActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank_layout);
         ButterKnife.inject(this);
-
+        // 设置右滑动返回
         if (mCheckBox.isChecked()) {
             appInfos = Utils.getNonSystemAppList();
         }else {
@@ -76,6 +76,11 @@ public class RankActivity extends AppCompatActivity{
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    protected void setStatusBar() {
+        //super.setStatusBar();
+        StatusBarUtil.setTransparent(this);
+    }
     class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         @Override
@@ -96,7 +101,7 @@ public class RankActivity extends AppCompatActivity{
             holder.mProgress.setProgress(progress);
 
             //左侧按钮
-            holder.mStop.setImageResource(appInfo.isSystemApp ? R.drawable.ic_rank_view : R.drawable.ic_rank_stop);
+            holder.mStop.setText(appInfo.isSystemApp ? R.string.view : R.string.stop);
 
             holder.mRootView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -119,7 +124,7 @@ public class RankActivity extends AppCompatActivity{
             @InjectView(R.id.icon)
             public ImageView mIcon;
             @InjectView(R.id.stop)
-            public ImageView mStop;
+            public TextView mStop;
             @InjectView(R.id.progress)
             public HorizontalProgress mProgress;
             @InjectView(R.id.root_view)

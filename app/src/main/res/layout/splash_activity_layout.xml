@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.abclauncher.powerboost.view.CustomFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_256"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible"/>
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_white"
+                android:text="@string/app_name"
+                android:textSize="30sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:visibility="invisible"/>
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/app_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_white"
+                android:text="@string/app_des"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</com.abclauncher.powerboost.view.CustomFrameLayout>

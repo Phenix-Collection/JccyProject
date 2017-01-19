@@ -39,7 +39,8 @@ public class ScreenOutUtil {
         return Settings.System.getInt(mContentResolver,Settings.System.SCREEN_OFF_TIMEOUT, s15);
     }
 
-    public int getScreenOutTimePercent(int screenTimeOut){
+    public int getScreenOutTimePercent(){
+        int screenTimeOut = getScreenOutTime();
         int percent = 0;
         if (screenTimeOut < times[0]) {
             return 0;

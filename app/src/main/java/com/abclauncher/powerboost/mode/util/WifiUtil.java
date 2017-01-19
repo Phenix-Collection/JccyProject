@@ -24,6 +24,10 @@ public class WifiUtil {
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     }
 
+    public boolean getWifiOpened(){
+        return mWifiManager.isWifiEnabled();
+    }
+
     public void openWifi(){
         mWifiManager.setWifiEnabled(true);
     }

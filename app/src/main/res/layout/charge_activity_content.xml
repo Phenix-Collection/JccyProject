@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/battery_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.abclauncher.powerboost.view.BatteryProgress
+                        android:id="@+id/bp_battery_progress"
+                        android:layout_width="178dp"
+                        android:layout_height="94dp"
+                        app:battery_progress="82"
+                        app:battery_radius="6dp"
+                        android:layout_gravity="center" />
+                    <com.abclauncher.powerboost.view.LightTextView
+                        android:id="@+id/battery_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        android:textColor="@color/text_color_white"
+                        android:text="80%"/>
+                </FrameLayout>
+
+                <com.abclauncher.powerboost.view.BatteryHeadView
+                    android:layout_width="6dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/tv_battery_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:textSize="16sp"
+                android:textColor="@color/text_color_white"
+                android:layout_marginTop="120dp"
+                android:layout_gravity="center_horizontal" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <LinearLayout
+            android:id="@+id/battery_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/time_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/charging_remaining"
+                android:textSize="16sp"
+                android:textColor="@color/text_color_light_gray" />
+            <include layout="@layout/charge_value"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/battery_status">
+            <include layout="@layout/charge_state_item_layout"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <include layout="@layout/charge_ad_layout"/>
+</FrameLayout>

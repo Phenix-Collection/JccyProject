@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="0dp"
-    android:layout_height="wrap_content"
+<FrameLayout android:layout_width="0dp"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_weight="1"
-    android:layout_gravity="center_vertical"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+        <com.abclauncher.powerboost.view.NormalTextView
             android:id="@+id/app_name"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:singleLine="true"
             android:textColor="@color/menu_text_color"
             android:layout_gravity="center_vertical"/>
-        <TextView
-            android:id="@+id/percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/menu_text_color"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp">
+            <com.abclauncher.powerboost.view.HorizontalProgress
+                android:id="@+id/progress"
+                android:layout_width="125dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_vertical"
+                app:radius="2dp"
+                app:bg_color="@color/rank_activity_progress_bg_color"
+                app:progress_color="@color/colorPrimary" />
+            <com.abclauncher.powerboost.view.NormalTextView
+                android:id="@+id/percent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/menu_text_color"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+        </LinearLayout>
+
     </LinearLayout>
-    <com.abclauncher.powerboost.view.HorizontalProgress
-        android:layout_marginTop="8dp"
-        android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="3.5dp"
-        app:radius="0dp"
-        app:bg_color="@color/rank_activity_progress_bg_color"
-        app:progress_color="@color/rank_activity_progress_color"
-        />
-</LinearLayout>
+
+</FrameLayout>

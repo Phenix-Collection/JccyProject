@@ -3,13 +3,13 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp">
-    <TextView
+    <com.abclauncher.powerboost.view.NormalTextView
         android:id="@+id/brightness"
         android:layout_width="0dp"
         android:layout_weight="1"
         style="@style/mode_dialog_des_style"
         android:text="@string/brightness"/>
-    <TextView
+    <com.abclauncher.powerboost.view.NormalTextView
         android:id="@+id/brightness_value"
         android:layout_width="wrap_content"
         style="@style/mode_dialog_des_style"

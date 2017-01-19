@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp">
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/synchronous"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        style="@style/mode_dialog_des_style"
+        android:text="@string/synchronous"/>
+    <com.abclauncher.powerboost.view.NormalTextView
+        android:id="@+id/synchronous_value"
+        android:layout_width="wrap_content"
+        style="@style/mode_dialog_des_style"
+        android:text="@string/off"/>
+</LinearLayout>
