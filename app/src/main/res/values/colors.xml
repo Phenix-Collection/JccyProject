@@ -53,6 +53,9 @@
     <color name="btn_start_color">#fff66e20</color>
     <color name="btn_end_color">#fffbd45f</color>
 
+    <color name="btn_start_color_alpha">#dbf66e20</color>
+    <color name="btn_end_color_alpha">#dcfbd45f</color>
+
     <color name="btn_shadow_start_color">#44000000</color>
     <color name="btn_shadow_center_color">#66000000</color>
     <color name="btn_shadow_end_color">#44fbd45f</color>

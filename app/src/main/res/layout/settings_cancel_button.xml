@@ -23,6 +23,7 @@
             android:layout_height="36dp"
             android:gravity="center"
             android:text="@string/later"
+            android:textAllCaps="true"
             android:textColor="@color/text_color_white" />
     </com.abclauncher.powerboost.view.MaterialRippleLayout>
 

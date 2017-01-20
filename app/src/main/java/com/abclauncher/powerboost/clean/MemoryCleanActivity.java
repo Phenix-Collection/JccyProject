@@ -49,6 +49,7 @@ import com.abclauncher.powerboost.util.SettingsHelper;
 import com.abclauncher.powerboost.util.Utils;
 import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.CustomFrameLayout;
+import com.abclauncher.powerboost.view.MaterialRippleLayout;
 import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
 import com.facebook.ads.NativeAd;
@@ -126,6 +127,8 @@ public class MemoryCleanActivity extends BaseActivity {
     ImageView mAdCoverIv;
     @InjectView(R.id.native_ad_icon)
     ImageView mAdIconIv;
+    @InjectView(R.id.native_ad_image_two)
+    ImageView mAdIconIvTwo;
     @InjectView(R.id.native_ad_title)
     TextView mAdTitleIv;
     @InjectView(R.id.native_ad_body)
@@ -143,6 +146,8 @@ public class MemoryCleanActivity extends BaseActivity {
     View mCleanContent;
     @InjectView(R.id.root_view)
     CustomFrameLayout mRootView;
+    @InjectView(R.id.ad_action_btn)
+    MaterialRippleLayout mAdActionBtn;
 
     private int[] startPointOne = new int[2];
     private int[] startPointTwo = new int[2];
@@ -174,6 +179,7 @@ public class MemoryCleanActivity extends BaseActivity {
     private BatteryReceiver mBatteryReceiver;
     private int mPercent;
     private int originMinutes;
+    private String coverImgUrl;
 
     private void runPointAnim() {
         Animator animator = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.radar_point_anim);
@@ -286,7 +292,7 @@ public class MemoryCleanActivity extends BaseActivity {
             public void onNativeAdLoaded(FacebookNativeAdBean facebookNativeAdBean) {
                 mAdIsLoaded = true;
                 String textForAdTitle = facebookNativeAdBean.title;
-                String coverImgUrl = facebookNativeAdBean.coverImgUrl;
+                coverImgUrl = facebookNativeAdBean.coverImgUrl;
                 String iconForAdUrl = facebookNativeAdBean.iconForAdUrl;
                 String textForAdBody = facebookNativeAdBean.textForAdBody;
                 String adAction = facebookNativeAdBean.actionBtnText;
@@ -299,9 +305,7 @@ public class MemoryCleanActivity extends BaseActivity {
                     mAdInstallTv.setText(adAction);
                 }
                 mAdBodyTv.setText(textForAdBody);
-                Glide.with(getApplicationContext())
-                        .load(coverImgUrl)
-                        .into(mAdCoverIv);
+
                 Glide.with(getApplicationContext())
                         .load(iconForAdUrl)
                         .into(mAdIconIv);
@@ -574,13 +578,18 @@ public class MemoryCleanActivity extends BaseActivity {
         }
     }
 
-    private ValueAnimator getScaleAndTranslationAnim() {
+    private AnimatorSet getScaleAndTranslationAnim() {
+        Animator cleanContentAnim = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.clean_content_dismiss_anim);
+        cleanContentAnim.setTarget(mResultLayout);
+        cleanContentAnim.setDuration(100);
+
+
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                mCleanResultDone.setTranslationX(mCleanDoneTranslateX * animatedFraction);
+             /*   mCleanResultDone.setTranslationX(mCleanDoneTranslateX * animatedFraction);
                 mCleanResultDone.setTranslationY(mCleanDoneTranslateY * animatedFraction);
                 mCleanResultDone.setScaleX(1 - animatedFraction * (1 - mCleanDoneScaleTo));
                 mCleanResultDone.setScaleY(1 - animatedFraction * (1 - mCleanDoneScaleTo));
@@ -588,9 +597,9 @@ public class MemoryCleanActivity extends BaseActivity {
                 mCleanResultDes.setTranslationX(mCleanDesTranslateX * animatedFraction);
                 mCleanResultDes.setTranslationY(mCleanDesTranslateY * animatedFraction);
                 mCleanResultDes.setScaleX(1 - animatedFraction * (1 - mCleanDesScaleTo));
-                mCleanResultDes.setScaleY(1 - animatedFraction * (1 - mCleanDesScaleTo));
+                mCleanResultDes.setScaleY(1 - animatedFraction * (1 - mCleanDesScaleTo));*/
 
-                mAdLayout.setTranslationY((1 - animatedFraction) * mAdLayout.getHeight() * 1.2f - mAdLayout.getHeight() * .15f);
+                mAdLayout.setTranslationY((1 - animatedFraction) * mAdLayout.getHeight() * 1.2f);
             }
         });
         valueAnimator.addListener(new AnimatorListenerAdapter() {
@@ -598,11 +607,32 @@ public class MemoryCleanActivity extends BaseActivity {
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
                 mAdLayout.setVisibility(View.VISIBLE);
+                mRootView.setShowBubble(false);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                mAdActionBtn.startAnim();
+                if (!TextUtils.isEmpty(coverImgUrl)){
+                    Glide.with(getApplicationContext())
+                            .load(coverImgUrl)
+                            .into(mAdIconIvTwo);
+                    Glide.with(getApplicationContext())
+                            .load(coverImgUrl)
+                            .into(mAdCoverIv);
+
+                }
+
             }
         });
-        valueAnimator.setDuration(800);
+        valueAnimator.setDuration(500);
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        return valueAnimator;
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(cleanContentAnim, valueAnimator);
+
+        return animatorSet;
     }
 
     @Override
@@ -666,7 +696,7 @@ public class MemoryCleanActivity extends BaseActivity {
                         public void run() {
                             showAdResultLayout();
                         }
-                    }, 100);
+                    }, 500);
 
                 }
             }

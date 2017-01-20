@@ -53,7 +53,7 @@ public class AnalyticsHelper {
     private static synchronized void initializeAnalyticsTracker(Context applicationContext) {
         if (mTracker == null){
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(applicationContext);
-            mTracker = analytics.newTracker("UA-86668289-1"); // 升级gms到3.0.0版本编译时提示找不到xml by xq
+            mTracker = analytics.newTracker("UA-90240150-1"); // 升级gms到3.0.0版本编译时提示找不到xml by xq
         }
     }
 

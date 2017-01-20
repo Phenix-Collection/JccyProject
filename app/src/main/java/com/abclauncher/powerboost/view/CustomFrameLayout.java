@@ -71,6 +71,10 @@ public class CustomFrameLayout extends FrameLayout{
         super.dispatchDraw(canvas);
     }
 
+    public void setShowBubble(boolean value){
+        mShowBubble = value;
+        invalidate();
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
