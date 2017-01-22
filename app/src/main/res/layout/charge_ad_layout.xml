@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -9,98 +10,118 @@
     <com.abclauncher.powerboost.view.ChargeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ad_layout"
         android:layout_width="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:background="#22ffffff"
-        android:paddingRight="8dp"
         android:visibility="gone"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ad"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+            <FrameLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:background="@drawable/ad_bg"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/native_ad_image"
+                    android:layout_width="280dp"
+                    android:layout_height="134dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:translationX="-8dp"
+                android:translationY="-8dp"
+                android:background="@drawable/ad_bg"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/native_ad_image_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="134dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"/>
+            </FrameLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/ll_header"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/native_ad_icon"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"/>
+                android:layout_margin="8dp"
+                app:civ_fill_color="@android:color/white"/>
 
 
             <com.abclauncher.powerboost.view.NormalTextView
                 android:id="@+id/native_ad_title"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:singleLine="true"
                 android:text="@string/app_name"
                 android:textColor="@color/text_color_white"
                 android:textSize="18sp"/>
-
-            <com.abclauncher.powerboost.view.NormalTextView
-                android:id="@+id/native_ad_call_to_action"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:background="@drawable/ad_install_btn_bg"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="INSTALL"
-                android:textColor="@color/text_color_white"
-                android:textSize="14sp" />
         </LinearLayout>
 
-        <FrameLayout
+        <com.abclauncher.powerboost.view.NormalTextView
+            android:id="@+id/native_ad_body"
             android:layout_width="match_parent"
-            android:layout_height="209dp">
-            <ImageView
-                android:id="@+id/native_ad_image"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:singleLine="true"
+            android:textColor="@color/ad_summary_color"
+            android:textSize="14sp" />
+
+        <com.abclauncher.powerboost.view.MaterialRippleLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginRight="60dip"
+            android:layout_marginLeft="60dip"
+            android:background="@drawable/ad_btn_bg"
+            android:id="@+id/ad_action_btn"
+            app:mrl_rippleColor="@color/ripple_color_light"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_ripple_background_allowed="false"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="20dp">
+            <com.abclauncher.powerboost.view.MediumTextView
+                android:id="@+id/native_ad_call_to_action"
                 android:layout_width="match_parent"
-                android:layout_height="209dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"/>
-            <com.abclauncher.powerboost.view.NormalTextView
-                android:id="@+id/ad_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#41000000"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:text="@string/ad_tag_text"
-                android:layout_gravity="right"
-                android:textColor="@android:color/white"
-                android:textSize="8sp" />
-            <com.abclauncher.powerboost.view.NormalTextView
-                android:id="@+id/native_ad_body"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom"
-                android:background="#41000000"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:lineSpacingExtra="2dip"
-                android:lineSpacingMultiplier="1.4"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="1"
-                android:singleLine="true"
-                android:textColor="@color/ad_summary_color"
-                android:textSize="14sp" />
-        </FrameLayout>
+                android:text="INSTALL"
+                android:textColor="@color/text_color_white"
+                android:textSize="16sp" />
+        </com.abclauncher.powerboost.view.MaterialRippleLayout>
+
     </com.abclauncher.powerboost.view.ChargeLinearLayout>
 </FrameLayout>

@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">Power Plus</string>
+    <string name="facebook_app_id">862014030568016</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_share">Teilen</string>
+    <string name="action_rate">Bewerten Sie uns</string>
+    <string name="action_feedback">Bewertung</string>
+    <string name="action_about_us">Info</string>
+    <string name="mode">Modus</string>
+    <string name="mode_title">Spar-Modus</string>
+    <string name="charge">Aufladen</string>
+    <string name="charge_title">Aufladen</string>
+    <string name="rank">Rang</string>
+    <string name="rank_title">Verbrauch</string>
+    <string name="hide_system_app">System-Apps verbergen</string>
+    <string name="view">Ansicht</string>
+    <string name="general_mode">Standard</string>
+    <string name="general_mode_des">Empfohlen wenn voll geladen</string>
+    <string name="battery_save_mode_des">Empfohlen bei niedrigen Akkustand </string>
+    <string name="sleep_mode_des">Empfohlen bei nachts</string>
+    <string name="battery_save_mode">Lang</string>
+    <string name="sleep_mode">Schlafen</string>
+    <string name="my_mode">Mein Modus</string>
+    <string name="my_mode_des">Die ursprünglichen Einstellungen speichern</string>
+    <string name="brightness">Helligkeit</string>
+    <string name="brightness_value_auto">Automatisch</string>
+    <string name="brightness_value_low">10%</string>
+    <string name="screen_timeout">Display-Timeout</string>
+    <string name="off">Aus</string>
+    <string name="on">Ein</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="gps">GPS</string>
+    <string name="wifi">Wifi</string>
+    <string name="mobile_data">Mobile Daten</string>
+    <string name="synchronous">Synchronisierung</string>
+    <string name="haptic_feedback">Haptisches Feedback</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="apply">Ändern</string>
+    <string name="ringer">Anrufton</string>
+    <string name="ringer_silent">Still</string>
+    <string name="vibrate">Vibrieren</string>
+    <string name="media_volume">Medienvolumen</string>
+    <string name="my_mode_settings_warn_des">Bearbeiteter Gegenstand erkannt. Speichern?</string>
+    <string name="save">" Speichern "</string>
+    <string name="optimize">OPTIMIEREN</string>
+    <string name="usage_time">Verbl. Zeit</string>
+    <string name="charging_time">Verbl. Ladezeit</string>
+    <string name="trickle_charging_time">Erhaltungsladung </string>
+    <string name="charged_completed">Laden Geschehen</string>
+    <string name="charge_tips">Überwache den Akkustatus zum Verhindern von Überladung</string>
+
+    <string-array name="screen_out_time_values">
+        <item>15s</item>
+        <item>30s</item>
+        <item>1m</item>
+        <item>5m</item>
+        <item>10m</item>
+    </string-array>
+
+    <string name="ad_tag_text">AD</string>
+
+    <string name="scan_memory">Laufende Apps, die Strom verbrauchen</string>
+    <string name="memory_clean_app_text">laufende Hintergrund-Apps gelöscht</string>
+    <string name="time_left">Verbl. Zeit</string>
+    <string name="charging_remaining">Verbl. Ladezeit</string>
+    <string name="battery_progress">Batterielebensdauer</string>
+    <string name="speed">Geschwindigkeit</string>
+    <string name="continuous">Kontinuierlich</string>
+    <string name="trickle">Erhaltung</string>
+    <string name="clean_result_des">Verlängerte Standby-Zeit</string>
+    <string name="clean_result_value">Minuten</string>
+    <string name="app_des">More than a battery saver</string>
+
+    <string name="battery_refresh_action">com.abclauncher.powerboost.battery.refresh</string>
+    <string name="notification">Notification</string>
+    <string name="settings_status_bar">In Statusleiste anzeigen</string>
+    <string name="settings_low_battery">Alarm Low-Power</string>
+    <string name="settings_fully_charged">Laden Geschehen</string>
+    <string name="settings_over_charged">Überhitzungserinnerung</string>
+    <string name="charge_settings">Lade-Einstellungen</string>
+    <string name="settings_charge_lock_screen">Intelligentes Laden(Kann gesponserte Inhalte enthalten)</string>
+    <string name="settings_auto_launch_des">Launch GO Battery Pro beim Aufladen</string>
+    <string name="low_battery_warn">Tippen, um Standbyzeit zu verlängern</string>
+    <string name="fully_charged_tips">Laden abgeschlossen. Ladegerät entfernen</string>
+    <string name="over_charged_tips">Laden abgeschlossen. Ladegerät entfernen</string>
+
+
+
+    <string name="share_with">Freigeben für</string>
+
+
+    <string name="rate_us_like_abc_cooler">Bewerten Sie uns Power Plus</string>
+    <string name="rate_us_des">Zeige uns deine Unterstützung, indem du die App mit 5 Sternen bei Google Play bewertest</string>
+    <string name="rate_us_dislike">MAG ICH NICHT</string>
+    <string name="rate">Bewerten Sie uns</string>
+    <!-- <string name="cancel">Abbrechen</string>-->
+
+    <string name="menu_feedback_email">Email</string>
+    <string name="menu_feedback_submit">Absenden</string>
+    <string name="menu_feedback_submit_success">Vielen Dank für Feedback</string>
+    <string name="menu_feedback_submit_fail">Senden fehlgeschlagen, versuchen Sie es bitte erneut</string>
+    <string name="menu_feedback_submit_dialog">Wird übermittelt...</string>
+    <string name="minutes">M</string>
+    <string name="hour">H</string>
+    <string name="press_again">Zum Verlassen erneut antippen</string>
+    <string name="problem_found">Gefundene Energieprobleme!</string>
+    <string name="scaning">Prüfung...</string>
+    <string name="stop">BEENDEN</string>
+    <string name="charging_screen_slide_to_enter"><![CDATA[>> Entsperren]]></string>
+    <string name="charging_time_des">Verbl. Ladezeit </string>
+    <string name="fully_charged_title">Laden Geschehen</string>
+    <string name="low_battery_title">Low power</string>
+    <string name="over_charged_title">Überladung</string>
+    <string name="version">V</string>
+    <string name="clean_memory_title">Optimization</string>
+    <string name="points">...</string>
+
+    <string name="notification_clean_tips">Laufende Apps, die Strom verbrauchen</string>
+    <string name="later">Später</string>
+    <string name="settings_close_lock_screen_dialog_title">Intelligentes Laden deaktivieren</string>
+    <string name="settings_close_lock_screen_dialog_des">Nach Deaktivierung wird der Ladestatus nicht mehr in Echtzeit überwacht. Deaktivieren?</string>
+    <string name="ok">OK</string>
+    <string name="switching">Wird geschaltet...</string>
+</resources>

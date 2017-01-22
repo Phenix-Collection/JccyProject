@@ -23,6 +23,7 @@
             android:layout_height="36dp"
             android:gravity="center"
             android:text="@string/rate_us_dislike"
+            android:textAllCaps="true"
             android:textColor="@color/colorPrimary" />
     </com.abclauncher.powerboost.view.MaterialRippleLayout>
 

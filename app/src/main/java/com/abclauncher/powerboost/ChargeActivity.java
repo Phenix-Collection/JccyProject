@@ -28,6 +28,7 @@ import com.abclauncher.powerboost.util.SettingsHelper;
 import com.abclauncher.powerboost.util.Utils;
 import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.BatteryProgress;
+import com.abclauncher.powerboost.view.MaterialRippleLayout;
 import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
 import com.facebook.ads.NativeAd;
@@ -98,6 +99,8 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
     //ad view
     @InjectView(R.id.native_ad_image)
     ImageView mAdCoverIv;
+    @InjectView(R.id.native_ad_image_two)
+    ImageView mAdCoverIvTwo;
     @InjectView(R.id.native_ad_icon)
     ImageView mAdIconIv;
     @InjectView(R.id.native_ad_title)
@@ -115,6 +118,8 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
     TextView mTimeLeftMinutesValue;
     @InjectView(R.id.charge_value)
     View mChargeValue;
+    @InjectView(R.id.ad_action_btn)
+    MaterialRippleLayout mAdActionBtn;
 
     @InjectView(R.id.bp_battery_progress)
     BatteryProgress mBpBatteryProgress;
@@ -137,6 +142,7 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
     private int mPercent;
     private boolean mShowTrickleTime;
     private boolean mHasAnim = false;
+    private String coverImgUrl;
 
     @OnClick(R.id.back)
     public void finishActivity(){
@@ -181,7 +187,7 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
                     mHandler.postDelayed(run, 0);
                 }
                 String textForAdTitle = facebookNativeAdBean.title;
-                String coverImgUrl = facebookNativeAdBean.coverImgUrl;
+                coverImgUrl = facebookNativeAdBean.coverImgUrl;
                 String iconForAdUrl = facebookNativeAdBean.iconForAdUrl;
                 String textForAdBody = facebookNativeAdBean.textForAdBody;
                 String adAction = facebookNativeAdBean.actionBtnText;
@@ -195,9 +201,6 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
                     mAdInstallTv.setText(adAction);
                 }
                 mAdBodyTv.setText(textForAdBody);
-                Glide.with(getApplicationContext())
-                        .load(coverImgUrl)
-                        .into(mAdCoverIv);
                 Glide.with(getApplicationContext())
                         .load(iconForAdUrl)
                         .into(mAdIconIv);
@@ -267,6 +270,20 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
 
                 mAdLayout.setVisibility(View.VISIBLE);
                 mBatteryPercent.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                if (!TextUtils.isEmpty(coverImgUrl)){
+                    Glide.with(getApplicationContext())
+                            .load(coverImgUrl)
+                            .into(mAdCoverIv);
+                    Glide.with(getApplicationContext())
+                            .load(coverImgUrl)
+                            .into(mAdCoverIvTwo);
+                }
+                mAdActionBtn.startAnim();
             }
         });
         valueAnimator.setDuration(800);

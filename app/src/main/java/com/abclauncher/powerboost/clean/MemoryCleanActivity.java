@@ -44,8 +44,10 @@ import com.abclauncher.powerboost.locker.utils.LockerUtils;
 import com.abclauncher.powerboost.notification.cleantips.CleanTipsNotification;
 import com.abclauncher.powerboost.receiver.BatteryDataReceiver;
 import com.abclauncher.powerboost.util.AdUtil;
+import com.abclauncher.powerboost.util.AnalyticsHelper;
 import com.abclauncher.powerboost.util.FacebookAdCallbackDtail;
 import com.abclauncher.powerboost.util.SettingsHelper;
+import com.abclauncher.powerboost.util.StatsUtil;
 import com.abclauncher.powerboost.util.Utils;
 import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.CustomFrameLayout;
@@ -571,6 +573,10 @@ public class MemoryCleanActivity extends BaseActivity {
                         Intent intent = getIntent();
                         setResult(RESULT_OK, intent);
                     }
+
+                    if (!mHasDestroy){
+                        AnalyticsHelper.sendEvent(StatsUtil.OPTIMIZE, StatsUtil.OPTIMIZE_RESULT);
+                    }
                 }
             });
 
@@ -608,6 +614,9 @@ public class MemoryCleanActivity extends BaseActivity {
                 super.onAnimationStart(animation);
                 mAdLayout.setVisibility(View.VISIBLE);
                 mRootView.setShowBubble(false);
+                if (!mHasDestroy){
+                    AnalyticsHelper.sendEvent(StatsUtil.OPTIMIZE, StatsUtil.OPTIMIZE_RESULT_AD);
+                }
             }
 
             @Override

@@ -31,4 +31,9 @@ public class StatsUtil {
     public static final String SETTINGS_OVER_CHARGED = "settings_over_charged";
     public static final String SETTINGS_AUTO_LAUNCHE = "settings_auto_launche";
     public static final String SETTINGS_LOCK_SCREEN = "settings_lock_screen";
+
+
+    public static final String OPTIMIZE = "optimize";
+    public static final String OPTIMIZE_RESULT = "optimize_result";
+    public static final String OPTIMIZE_RESULT_AD = "optimize_result_ad";
 }
