@@ -27,6 +27,16 @@ public class BaseApplication extends Application {
         FacebookSdk.sdkInitialize(getApplicationContext());
         Thread.setDefaultUncaughtExceptionHandler(restartHandler);
 
+
+        if (!SettingsHelper.getHasCreateShortCut(getApplicationContext())){
+            Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+            intent.setAction("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+            Utils.addShortCutScreen(getApplicationContext(), getResources().getString(R.string.app_name),
+                    intent, false, bitmap);
+            SettingsHelper.setHasCreateShortCut(getApplicationContext(), true);
+        }
     }
 
     private Thread.UncaughtExceptionHandler restartHandler= new Thread.UncaughtExceptionHandler() {

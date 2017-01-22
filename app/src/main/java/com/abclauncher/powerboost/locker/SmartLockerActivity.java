@@ -34,6 +34,8 @@ import com.facebook.ads.NativeAd;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
+import java.util.Random;
+
 import butterknife.InjectView;
 
 
@@ -97,6 +99,8 @@ public class SmartLockerActivity extends BaseLockerActivity implements LockerRec
     TextView mTimeLeftMinutesValue;
     @InjectView(R.id.charge_value)
     View mChargeValue;
+    @InjectView(R.id.root_view)
+    View mRootView;
 
     String mSlideStr;
     private NativeAd nativeAd;
@@ -116,6 +120,9 @@ public class SmartLockerActivity extends BaseLockerActivity implements LockerRec
     private boolean mIsCharging;
     private boolean mShowTrickleTime;
     private int mPercent;
+    private int[] mBgRes = new int[]{
+            R.drawable.bg_lock, R.drawable.locker_bg_one, R.drawable.locker_bg_two, R.drawable.locker_bg_three
+    };
 
     public static void start(Context context) {
         Intent intent = new Intent(context, SmartLockerActivity.class);
@@ -144,6 +151,8 @@ public class SmartLockerActivity extends BaseLockerActivity implements LockerRec
         mShimmer.setDuration(2800);
         mShimmer.start(mUnLockTv);
         initAd();
+
+        mRootView.setBackgroundResource(mBgRes[new Random().nextInt(4)]);
 
         mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 0);
     }

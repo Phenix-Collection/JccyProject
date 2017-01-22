@@ -239,19 +239,8 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
 
 
         new Thread(mInitAllRunningApps).start();
-        mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 0);
+        mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 1000);
 
-
-
-        if (!SettingsHelper.getHasCreateShortCut(getApplicationContext())){
-            Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
-            intent.setAction("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-            Utils.addShortCutScreen(getApplicationContext(), getResources().getString(R.string.app_name),
-                    intent, false, bitmap);
-            SettingsHelper.setHasCreateShortCut(getApplicationContext(), true);
-        }
     }
 
     @Override
@@ -527,7 +516,7 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                     if (!CleanUtil.shouldCleanMemory(getApplicationContext())) {
                         updateUsageTime();
                     }
-                    mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 500);
+                    mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 1000);
                     break;
                 case FIRST_PRESSED_BACK:
                     firstPressBack = true;

@@ -25,5 +25,6 @@
         android:text="VIEW"
         android:textSize="12sp"
         android:textAllCaps="true"
+        android:singleLine="true"
         android:textColor="@color/colorPrimary" />
 </com.abclauncher.powerboost.view.MaterialRippleLayout>

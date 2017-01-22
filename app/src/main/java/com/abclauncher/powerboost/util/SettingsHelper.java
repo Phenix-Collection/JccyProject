@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.abclauncher.powerboost.RankActivity;
 import com.abclauncher.powerboost.mode.bean.MyModeSettings;
 import com.abclauncher.powerboost.mode.util.AudioUtil;
 import com.abclauncher.powerboost.mode.util.BluetoothUtil;
@@ -57,6 +58,7 @@ public class SettingsHelper {
     private static final String DELETE_FULLY_CHARGED_NOTIFICATION = "delete_fully_charged_notification";
     private static final String DELETE_OVER_CHARGED_NOTIFICATION = "delete_over_charged_notification";
     private static final String TAG = "SettingsHelper";
+    private static final String SHOW_SYSTEM_APPS = "show_system_apps";
     private static long FULL_USAGE_TIME = 1000 * 60 * 60 * 36;
 
 
@@ -365,6 +367,14 @@ public class SettingsHelper {
          setPreferenceBoolean(context, HAS_CREATE_SHORTCUT, value);
     }
 
+    public static boolean getShouldShowSystemApps(Context context) {
+        return getPreferenceBoolean(context, SHOW_SYSTEM_APPS, true);
+    }
+
+    public static void setShouldShowSystemApps(Context context, boolean value) {
+       setPreferenceBoolean(context, SHOW_SYSTEM_APPS, value);
+    }
+
     public static void saveSettings(Context context, MyModeSettings myModeSettings) {
         setMobileDataIsOpened(context, myModeSettings.mMobileDataOpened);
         setWifiIsOpened(context, myModeSettings.mWifiOpened);
@@ -378,6 +388,5 @@ public class SettingsHelper {
         setBrightnessPercent(context, myModeSettings.mBrightnessPercent);
         setScreenOutPercent(context, myModeSettings.mScreenOutPercent);
     }
-
 
 }

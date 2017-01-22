@@ -121,4 +121,6 @@
     <string name="settings_close_lock_screen_dialog_des">Once disabled, it will not monitor charging status in real time. Disable?</string>
     <string name="ok">OK</string>
     <string name="switching">Switching...</string>
+
+
 </resources>

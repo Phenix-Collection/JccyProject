@@ -125,7 +125,7 @@ public class Utils {
             appInfos.add(appInfo);
         }
 
-        Collections.sort(appInfos, new CustomComparator());
+        //Collections.sort(appInfos, new CustomComparator());
         return appInfos;
     }
 
@@ -143,7 +143,7 @@ public class Utils {
             sTotalTime += time;
             appInfos.add(appInfo);
         }
-        Collections.sort(appInfos, new CustomComparator());
+        //Collections.sort(appInfos, new CustomComparator());
         return appInfos;
     }
 
@@ -170,7 +170,7 @@ public class Utils {
                 appInfo.isSystemApp = (applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0;
                 appInfo.percent = format((appInfo.cpuTime * 100.0d) / sTotalTime);
                 if (sAllRunningAppsMap.containsKey(appInfo.appName)) {
-                    Log.d(TAG, "getRunningAppList: --->" + appInfo.appName);
+                    Log.d(TAG, "initRunningAppList: --->" + appInfo.appName);
                     AppInfo appInfo1 = sAllRunningAppsMap.get(appInfo.appName);
                     appInfo1.cpuTime += appInfo.cpuTime;
                     appInfo1.percent = format((appInfo1.cpuTime * 100.0d) / sTotalTime);
@@ -180,7 +180,7 @@ public class Utils {
                 }
 
             } catch (PackageManager.NameNotFoundException e) {
-                Log.d(TAG, "getRunningAppList: " + e.toString());
+                Log.d(TAG, "initRunningAppList: " + e.toString());
                 e.printStackTrace();
             }
         }
@@ -313,9 +313,9 @@ public class Utils {
     public static String getUsageMinutesValue(long time){
         int hour = (int) (time * 1.f/ (1000 * 60 * 60));
         int mins = (int) ((time - hour * 1000 * 60 * 60) / (1000 * 60));
-        if (mins == 0) {
-            return "00";
-        } else if (mins < 10){
+        if (mins <= 0) {
+            return "01";
+        } else if (mins < 10 && mins > 0){
             return "0" + mins;
         } else {
             return mins + "";

@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">Power Plus</string>
+    <string name="facebook_app_id">862014030568016</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_share">Condividi</string>
+    <string name="action_rate">Vota</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_about_us">Info</string>
+    <string name="mode">Modalità</string>
+    <string name="mode_title">Modalità risparmio</string>
+    <string name="charge">Affidabile</string>
+    <string name="charge_title">Ricarica fase</string>
+    <string name="rank">Classifica</string>
+    <string name="rank_title">Consumo</string>
+    <string name="hide_system_app">Nascondi app di sistema</string>
+    <string name="view">Visualizza</string>
+    <string name="general_mode">Generale</string>
+    <string name="general_mode_des">Utilizzo raccomandato con la batteria completamente carica</string>
+    <string name="battery_save_mode_des">Utilizzo raccomandato in condizioni di batteria quasi scarica</string>
+    <string name="sleep_mode_des">Utilizzo raccomandato in condizioni di notte</string>
+    <string name="battery_save_mode">Lunga</string>
+    <string name="sleep_mode">Sospensione</string>
+    <string name="my_mode">La mia modalità</string>
+    <string name="my_mode_des">Salva le impostazioni correnti</string>
+    <string name="brightness">Luminosità</string>
+    <string name="brightness_value_auto">Auto</string>
+    <string name="brightness_value_low">10%</string>
+    <string name="screen_timeout">Timeout sc.</string>
+    <string name="off">Off</string>
+    <string name="on">On</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="gps">GPS</string>
+    <string name="wifi">Wifi</string>
+    <string name="mobile_data">Dati mobili</string>
+    <string name="synchronous">Sincronizzazione</string>
+    <string name="haptic_feedback">Feedback aptico</string>
+    <string name="cancel">Annulla</string>
+    <string name="apply">Modifica</string>
+    <string name="ringer">Suoneria</string>
+    <string name="ringer_silent">Silenzioso</string>
+    <string name="vibrate">Vibra</string>
+    <string name="media_volume">Volume dei media</string>
+    <string name="my_mode_settings_warn_des">Elemento modificato. Salvare?</string>
+    <string name="save">Salva</string>
+    <string name="optimize">OTTIMIZZA</string>
+    <string name="usage_time">Tempo rimasto</string>
+    <string name="charging_time">Tempo ricarica</string>
+    <string name="trickle_charging_time">Carica di compensazione </string>
+    <string name="charged_completed">Ricarica completata</string>
+    <string name="charge_tips">Controllo dello stato della batteria per evitare il suo sovraccarico</string>
+
+    <string-array name="screen_out_time_values">
+        <item>15s</item>
+        <item>30s</item>
+        <item>1m</item>
+        <item>5m</item>
+        <item>10m</item>
+    </string-array>
+
+    <string name="ad_tag_text">AD</string>
+
+    <string name="scan_memory">app in uso che consumano energia</string>
+    <string name="memory_clean_app_text">app in background eliminate</string>
+    <string name="time_left">Tempo rimasto</string>
+    <string name="charging_remaining">Tempo ricarica</string>
+    <string name="battery_progress">Durata della batteria</string>
+    <string name="speed">Velocità</string>
+    <string name="continuous">Continua</string>
+    <string name="trickle">Compensazione</string>
+    <string name="clean_result_des">Tempo di standby aumentato</string>
+    <string name="clean_result_value">Mins</string>
+    <string name="app_des">More than a battery saver</string>
+
+    <string name="battery_refresh_action">com.abclauncher.powerboost.battery.refresh</string>
+    <string name="notification">Notification</string>
+    <string name="settings_status_bar">Visualizza nella barra di stato</string>
+    <string name="settings_low_battery">Allarme batteria</string>
+    <string name="settings_fully_charged">Ricarica completata</string>
+    <string name="settings_over_charged">Promemoria di sovraccarica</string>
+    <string name="charge_settings">Impostazioni di ricarica</string>
+    <string name="settings_charge_lock_screen">Smart Charge(Può includere contenuti sponsorizzati)</string>
+    <string name="settings_auto_launch_des">Launch Power Plus in ricarica</string>
+    <string name="low_battery_warn">Tocca e aumenta lo standby</string>
+    <string name="fully_charged_tips">Carica completata. Rimuovere il caricabatteria</string>
+    <string name="over_charged_tips">Carica completata. Rimuovere il caricabatteria</string>
+
+
+
+    <string name="share_with">Condividi con</string>
+
+
+    <string name="rate_us_like_abc_cooler">Vota Power Plus</string>
+    <string name="rate_us_des">Mostra il tuo sostegno lasciandoci una classificazione di 5 stelle su Google Play</string>
+    <string name="rate_us_dislike">NON MI PIACE</string>
+    <string name="rate">Vota</string>
+    <!-- <string name="cancel">Annulla</string>-->
+
+    <string name="menu_feedback_email">Email</string>
+    <string name="menu_feedback_submit">Invia</string>
+    <string name="menu_feedback_submit_success">Grazie per il feedback</string>
+    <string name="menu_feedback_submit_fail">Invio non riuscito. Riprova</string>
+    <string name="menu_feedback_submit_dialog">Invio in corso...</string>
+    <string name="minutes">M</string>
+    <string name="hour">H</string>
+    <string name="press_again">Tocca di nuovo per uscire</string>
+    <string name="problem_found">Trovati problemi di alimentazione!</string>
+    <string name="scaning">Scansione...</string>
+    <string name="stop">ARRESTA</string>
+    <string name="charging_screen_slide_to_enter"><![CDATA[>> Scorrere per sbloccare]]></string>
+    <string name="charging_time_des">Tempo ricarica </string>
+    <string name="fully_charged_title">Ricarica completata</string>
+    <string name="low_battery_title">Low power</string>
+    <string name="over_charged_title">Carica eccessiva</string>
+    <string name="version">V</string>
+    <string name="clean_memory_title">Ottimizzazione</string>
+    <string name="points">...</string>
+
+    <string name="notification_clean_tips">app in uso che consumano energia</string>
+    <string name="later">Dopo</string>
+    <string name="settings_close_lock_screen_dialog_title">Disattiva Smart Charge</string>
+    <string name="settings_close_lock_screen_dialog_des">Una volta disattivato, non controllerà lo stato della carica in tempo reale. Disattivarlo?</string>
+    <string name="ok">OK</string>
+    <string name="switching">In fase di passaggio...</string>
+</resources>
