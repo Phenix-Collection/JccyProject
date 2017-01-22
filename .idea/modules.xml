@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PowerBoost.iml" filepath="$PROJECT_DIR$/PowerBoost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JccyProject.iml" filepath="$PROJECT_DIR$/JccyProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

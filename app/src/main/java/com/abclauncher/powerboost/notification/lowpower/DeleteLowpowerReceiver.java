@@ -11,7 +11,7 @@ import com.abclauncher.powerboost.util.SettingsHelper;
  * Created by sks on 2017/1/18.
  */
 
-public class DeleteLowPowerReceiver extends BroadcastReceiver {
+public class DeleteLowpowerReceiver extends BroadcastReceiver {
 
     private String TAG = "DeleteCleanTipsReceiver";
     @Override

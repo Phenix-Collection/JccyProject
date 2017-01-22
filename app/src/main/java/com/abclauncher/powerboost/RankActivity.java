@@ -1,9 +1,12 @@
 package com.abclauncher.powerboost;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.abclauncher.powerboost.bean.AppInfo;
+import com.abclauncher.powerboost.rank.RankDao;
+import com.abclauncher.powerboost.util.SettingsHelper;
 import com.abclauncher.powerboost.util.Utils;
 import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.HorizontalProgress;
@@ -27,16 +32,20 @@ import butterknife.OnClick;
  * Created by sks on 2016/12/22.
  */
 
-public class RankActivity extends BaseActivity{
+public class RankActivity extends BaseActivity implements RankDao.AllAppsLoadedListener {
 
+    private static final String TAG = "RankActivity";
     @InjectView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+    @InjectView(R.id.content_view)
+    View mContentView;
 
     @InjectView(R.id.checkbox)
     CheckBox mCheckBox;
 
     private List<AppInfo> appInfos;
     private Adapter mAdapter;
+    private ProgressDialog mProgressDialog;
 
 
     @OnClick(R.id.back)
@@ -48,12 +57,12 @@ public class RankActivity extends BaseActivity{
     public void hideOrShowSystemApps(){
         mCheckBox.setChecked(!mCheckBox.isChecked());
         if (mCheckBox.isChecked()) {
-            appInfos = Utils.getNonSystemAppList();
+            appInfos = RankDao.getInstance(getApplicationContext()).getNonSystemAppList();
         }else {
-            appInfos = Utils.getAllRunningApps();
+            appInfos = RankDao.getInstance(getApplicationContext()).getAllRunningAppsByCache();
         }
-        //appInfos = Utils.getRunningAppList(getApplicationContext(), !mCheckBox.isChecked());
         mAdapter.notifyDataSetChanged();
+        SettingsHelper.setShouldShowSystemApps(getApplicationContext(), !mCheckBox.isChecked());
     }
 
 
@@ -63,11 +72,20 @@ public class RankActivity extends BaseActivity{
         setContentView(R.layout.activity_rank_layout);
         ButterKnife.inject(this);
         // 设置右滑动返回
-        if (mCheckBox.isChecked()) {
-            appInfos = Utils.getNonSystemAppList();
-        }else {
-            appInfos = Utils.getAllRunningApps();
-        }
+        RankDao rankDao = RankDao.getInstance(this);
+        rankDao.setAppAppsLoadedListener(this);
+        showProgressDialog();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                appInfos = RankDao.getInstance(getApplicationContext()).initRunningAppList(getApplicationContext(),
+                        SettingsHelper.getShouldShowSystemApps(getApplicationContext()));
+            }
+        }).start();
+
+        mCheckBox.setChecked(!SettingsHelper.getShouldShowSystemApps(getApplicationContext()));
+
+
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new Adapter();
@@ -76,11 +94,43 @@ public class RankActivity extends BaseActivity{
         mRecyclerView.setAdapter(mAdapter);
     }
 
+
     @Override
     protected void setStatusBar() {
         //super.setStatusBar();
         StatusBarUtil.setTransparent(this);
     }
+
+    private void showProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage(getResources().getString(R.string.loading));
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void onAllAppsInited() {
+        Log.d(TAG, "onAllAppsInited: ");
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.notifyDataSetChanged();
+                mContentView.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RankDao.getInstance(getApplicationContext()).cleanData();
+    }
+
+    private Handler mHandler = new Handler();
+
     class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         @Override

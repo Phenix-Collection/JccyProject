@@ -33,8 +33,15 @@
             android:textSize="20sp"
             android:layout_marginLeft="@dimen/activity_vertical_margin"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <include layout="@layout/rank_activity_hide_system_apps"/>
 
-    <include layout="@layout/rank_activity_hide_system_apps"/>
+        <include layout="@layout/rank_activity_content_main" />
+    </LinearLayout>
 
-    <include layout="@layout/rank_activity_content_main" />
 </LinearLayout>

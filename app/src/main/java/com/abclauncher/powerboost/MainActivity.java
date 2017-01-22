@@ -195,13 +195,6 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
     @InjectView(R.id.root_view)
     CustomFrameLayout mRootView;
 
-    private Runnable mInitAllRunningApps =  new Runnable() {
-        @Override
-        public void run() {
-            Utils.initAllRunningApps(getApplicationContext());
-        }
-    };
-
     @OnClick(R.id.charge_screen_tips)
     public void OnChargeScreenTipsClicked(){
         AnalyticsHelper.sendEvent(StatsUtil.MAIN_PAGE, StatsUtil.MAIN_PAGE_LOCK_SCREEN_TIPS);
@@ -238,7 +231,6 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
         }
 
 
-        new Thread(mInitAllRunningApps).start();
         mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 1000);
 
     }

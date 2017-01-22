@@ -35,8 +35,7 @@ public class RankDao {
     private  List<AppInfo> mAllRunningApps = new ArrayList<>();
     private  List<AppInfo> mNonSystemAppList = new ArrayList<>();
     private HashMap<String, AppInfo> mAllRunningAppsMap = new HashMap<>();
-    private boolean mHasInitApps = false;
-    private AllAppsInitedListener mAllAppsInitedListener;
+    private AllAppsLoadedListener mAllAppsLoadedListener;
 
     public RankDao(Context context) {
         mContext = context;
@@ -62,11 +61,9 @@ public class RankDao {
         mAllRunningApps.clear();
         mAllRunningAppsMap.clear();
         mNonSystemAppList.clear();
-        mHasInitApps = false;
     }
 
     public List<AppInfo> initRunningAppList(Context context, boolean needSystemApps) {
-        List<AppInfo> allApps = new ArrayList<>();
         List<AppInfo> runningApps = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             runningApps = findRunningAppsLollipop(context);
@@ -105,18 +102,24 @@ public class RankDao {
         //初始化 所有 app
         mAllRunningApps.addAll(mAllRunningAppsMap.values());
         Collections.sort(mAllRunningApps, new CustomComparator());
+        //初始化 所有 非系统app
         for (AppInfo appInfo : mAllRunningApps) {
             if (!appInfo.isSystemApp){
                 mNonSystemAppList.add(appInfo);
             }
         }
-        //初始化 所有 非系统app
         Collections.sort(mNonSystemAppList, new CustomComparator());
-        mHasInitApps = true;
-        if (mAllAppsInitedListener != null) {
-            mAllAppsInitedListener.onAllAppsInited();
+
+
+        if (mAllAppsLoadedListener != null) {
+            mAllAppsLoadedListener.onAllAppsInited();
         }
-        return mAllRunningApps;
+        if (needSystemApps) {
+            return mAllRunningApps;
+        } else {
+            return mNonSystemAppList;
+        }
+
     }
 
 
@@ -238,15 +241,11 @@ public class RankDao {
         return nf.format(value);
     }
 
-    public boolean hasInitRunningApps() {
-        return mHasInitApps;
-    }
-
-    public interface AllAppsInitedListener {
+    public interface AllAppsLoadedListener {
         public void onAllAppsInited();
     }
 
-    public void setAppAppsInitedListener(AllAppsInitedListener appAppsInitedListener){
-        mAllAppsInitedListener = appAppsInitedListener;
+    public void setAppAppsLoadedListener(AllAppsLoadedListener appAppsInitedListener){
+        mAllAppsLoadedListener = appAppsInitedListener;
     }
 }
