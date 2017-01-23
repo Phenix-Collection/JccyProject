@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:name=".BaseApplication"
@@ -72,41 +73,48 @@
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
             android:label="@string/rank"
+            android:launchMode="singleTask"
             />
 
         <activity android:name=".AboutUsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
             android:label="@string/rank"
+            android:launchMode="singleTask"
             />
 
         <activity android:name=".SettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
             android:label="@string/rank"
+            android:launchMode="singleTask"
             />
 
         <activity android:name=".ChargeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
             android:label="@string/charge"
+            android:launchMode="singleTask"
             android:taskAffinity="com.abclauncher.powerboost.charge"
             />
 
         <activity
             android:name=".FeedbackActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NormalStyle" />
+            android:theme="@style/NormalStyle"
+            android:launchMode="singleTask"/>
 
         <activity android:name=".mode.ModeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
-            android:label="@string/mode"/>
+            android:label="@string/mode"
+            android:launchMode="singleTask"/>
 
         <activity android:name=".mode.MyModeSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NormalStyle"
-            android:label="@string/mode"/>
+            android:label="@string/mode"
+            android:launchMode="singleTask"/>
 
         <activity
             android:name=".locker.SmartLockerActivity"

@@ -16,6 +16,7 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Process;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -391,6 +392,7 @@ public class MemoryCleanActivity extends BaseActivity {
                     public void run() {
                         for(AppProcessInfo info : apps) {
                             killBackgroundProcesses(info.processName);
+                            killBackgroundProcesses(info.pid);
                         }
                         initExtendedList();
                     }
@@ -409,6 +411,14 @@ public class MemoryCleanActivity extends BaseActivity {
 
             }
         }).start();
+    }
+
+    private void killBackgroundProcesses(int pid) {
+        try {
+            Process.killProcess(pid);
+        }catch (Exception e) {
+
+        }
     }
 
     private void initExtendedList() {
@@ -767,6 +777,7 @@ public class MemoryCleanActivity extends BaseActivity {
                             String.class);
             forceStopPackage.setAccessible(true);
             forceStopPackage.invoke(activityManager, packageName);
+
 
         } catch (Exception e) {
 

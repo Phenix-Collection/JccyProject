@@ -262,7 +262,13 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                 }
             });
             Log.d(TAG, "run: " + apps.size());
-            mFoundProblemDes.setText(apps.size() + " " + getResources().getString(R.string.scan_memory));
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    mFoundProblemDes.setText(apps.size() + " " + getResources().getString(R.string.scan_memory));
+                }
+            });
+
         }
     };
 
@@ -358,7 +364,7 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
 
             Animator foundProblemAnim = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.main_page_found_problem_anim);
             foundProblemAnim.setTarget(mProblemContainer);
-            foundProblemAnim.setDuration(400);
+            foundProblemAnim.setDuration(200);
 
             final float density = getResources().getDisplayMetrics().density;
             mAppConsumePowerContainer.setAlpha(0);
@@ -396,7 +402,7 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    mHandler.postDelayed(showOptimize, 150);
+                    mHandler.postDelayed(showOptimize, 100);
                 }
             });
             totalAnimSet.play(animatorSet).with(foundProblemSet);
@@ -416,16 +422,31 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    mHandler.postDelayed(new Runnable() {
+                    mHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            mOptimizeBtn.startAnim();
+                            //mOptimizeBtn.startAnim();
+                            ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
+                                    mOptimizeContainer,
+                                    PropertyValuesHolder.ofFloat("scaleX", 1.05f, 1.09f, 1.06f, 0.99f, 1.05f, 1.10f, 1.10f, 1.05f),
+                                    PropertyValuesHolder.ofFloat("scaleY", 1.05f, 1.09f, 1.05f, 0.99f, 1.05f, 1.10f, 1.10f, 1.05f)
+                            );
+                            objectAnimator.addListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    //mOptimizeBtn.startAnim();
+                                }
+                            });
+                            objectAnimator.setInterpolator(new AccelerateInterpolator());
+                            objectAnimator.setDuration(600);
+                            objectAnimator.start();
                         }
-                    }, 200);
+                    });
                 }
             });
             animator.setInterpolator(new AccelerateDecelerateInterpolator());
-            animator.setDuration(800);
+            animator.setDuration(600);
             animator.start();
         }
     };
