@@ -396,9 +396,7 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    mOptimizeText.setText(R.string.optimize);
-                    mOptimizeText.setAlpha(0);
-                    mHandler.postDelayed(showOptimize, 300);
+                    mHandler.postDelayed(showOptimize, 150);
                 }
             });
             totalAnimSet.play(animatorSet).with(foundProblemSet);
@@ -410,6 +408,8 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
     private Runnable showOptimize = new Runnable() {
         @Override
         public void run() {
+            mOptimizeText.setText(R.string.optimize);
+            mOptimizeText.setAlpha(0);
             Animator animator = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.main_activity_optimize_show_in);
             animator.setTarget(mOptimizeText);
             animator.addListener(new AnimatorListenerAdapter() {
