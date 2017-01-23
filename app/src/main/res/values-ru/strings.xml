@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">Power Plus</string>
+    <string name="facebook_app_id">862014030568016</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_share">Поделиться</string>
+    <string name="action_rate">Оценить</string>
+    <string name="action_feedback">Отзыв</string>
+    <string name="action_about_us">О приложении</string>
+    <string name="mode">Режим</string>
+    <string name="mode_title">Режим</string>
+    <string name="charge">Зарядка</string>
+    <string name="charge_title">Поэтапная зарядка</string>
+    <string name="rank">Рейтинг</string>
+    <string name="rank_title">Потребление</string>
+    <string name="hide_system_app">Скрыть сис. прил</string>
+    <string name="view">Просмотр</string>
+    <string name="general_mode">Общий</string>
+    <string name="general_mode_des">Рекомендуется использовать при полном заряде батареи</string>
+    <string name="battery_save_mode_des">Рекомендуется использовать при низком заряде батареи</string>
+    <string name="sleep_mode_des">Рекомендуется использовать при ночью</string>
+    <string name="battery_save_mode">Энергосберегающий</string>
+    <string name="sleep_mode">Сон</string>
+    <string name="my_mode">Мой режим</string>
+    <string name="my_mode_des">Сохранены первоначальные настройки</string>
+    <string name="brightness">Яркость</string>
+    <string name="brightness_value_auto">Авто</string>
+    <string name="brightness_value_low">10%</string>
+    <string name="screen_timeout">Задержка откл. экрана</string>
+    <string name="off">Выкл.</string>
+    <string name="on">Вкл.</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="gps">GPS</string>
+    <string name="wifi">Wifi</string>
+    <string name="mobile_data">Интернет</string>
+    <string name="synchronous">Синхронизация</string>
+    <string name="haptic_feedback">Виброотклик</string>
+    <string name="cancel">Отмена</string>
+    <string name="apply">Изменить</string>
+    <string name="ringer">Звонок</string>
+    <string name="ringer_silent">Без звука</string>
+    <string name="vibrate">Вибрация</string>
+    <string name="media_volume">Громкость медиа</string>
+    <string name="my_mode_settings_warn_des">Изменен. эл-т удален. Сохранить?</string>
+    <string name="save">Сохранить</string>
+    <string name="optimize">ОПТИМИЗИРОВАТЬ</string>
+    <string name="usage_time">Оставшееся время</string>
+    <string name="charging_time">Окончания зарядки</string>
+    <string name="trickle_charging_time">Импульсная </string>
+    <string name="charged_completed">Зарядка завершена</string>
+    <string name="charge_tips">Следите за состоянием батареи, чтобы избежать перезаряда</string>
+
+    <string-array name="screen_out_time_values">
+        <item>15s</item>
+        <item>30s</item>
+        <item>1m</item>
+        <item>5m</item>
+        <item>10m</item>
+    </string-array>
+
+    <string name="ad_tag_text">AD</string>
+
+    <string name="scan_memory">запущенные приложения потребляют энергию</string>
+    <string name="memory_clean_app_text">фоновых приложен. закрыто</string>
+    <string name="time_left">Оставшееся время</string>
+    <string name="charging_remaining">Окончания зарядки</string>
+    <string name="battery_progress">Срок службы батареи</string>
+    <string name="speed">Скорость</string>
+    <string name="continuous">Непрерывная</string>
+    <string name="trickle">Импульсная</string>
+    <string name="clean_result_des">Продленное время ожидания</string>
+    <string name="clean_result_value">мин</string>
+    <string name="app_des">More than a battery saver</string>
+
+    <string name="battery_refresh_action">com.abclauncher.powerboost.battery.refresh</string>
+    <string name="notification">Notification</string>
+    <string name="settings_status_bar">Показывать в строке состояния</string>
+    <string name="settings_low_battery">Сигнал при разрядке</string>
+    <string name="settings_fully_charged">Зарядка завершена</string>
+    <string name="settings_over_charged">Напоминание о перезаряде</string>
+    <string name="charge_settings">Настройки зарядки</string>
+    <string name="settings_charge_lock_screen">Умная зарядка(Может содержать спонсорский контент)</string>
+    <string name="settings_auto_launch_des">Лаунчер Power Plus во время зарядки</string>
+    <string name="low_battery_warn">Нажмите, чтобы увеличить время работы</string>
+    <string name="fully_charged_tips">Зарядка завершена. Уберите зар. устр-во</string>
+    <string name="over_charged_tips">Зарядка завершена. Уберите зар. устр-во</string>
+
+
+
+    <string name="share_with">Открыть доступ</string>
+
+
+    <string name="rate_us_like_abc_cooler">Оценить Power Plus</string>
+    <string name="rate_us_des">Покажите свою поддержку, оставив нам 5 звезд рейтинга на Google Play</string>
+    <string name="rate_us_dislike">НЕ НРАВИТСЯ</string>
+    <string name="rate">Оценить</string>
+    <!-- <string name="cancel">Отмена</string>-->
+
+    <string name="menu_feedback_email">Email</string>
+    <string name="menu_feedback_submit">Отправить</string>
+    <string name="menu_feedback_submit_success">Спасибо за отзыв</string>
+    <string name="menu_feedback_submit_fail">Отправка не удалась, попробуйте ещё раз</string>
+    <string name="menu_feedback_submit_dialog">Отправка...</string>
+    <string name="minutes">M</string>
+    <string name="hour">H</string>
+    <string name="press_again">Для выхода коснитесь еще раз</string>
+    <string name="problem_found">Найдены проблемы с питанием!</string>
+    <string name="scaning">Сканирование...</string>
+    <string name="stop">СТОП</string>
+    <string name="charging_screen_slide_to_enter"><![CDATA[>> Проведите для разблок]]></string>
+    <string name="charging_time_des">Окончания зарядки </string>
+    <string name="fully_charged_title">Зарядка завершена</string>
+    <string name="low_battery_title">малая мощность</string>
+    <string name="over_charged_title">Избыточная зарядка</string>
+    <string name="version">V</string>
+    <string name="clean_memory_title">Оптимизация</string>
+    <string name="points">...</string>
+
+    <string name="notification_clean_tips">запущенные приложения потребляют энергию</string>
+    <string name="later">Позже</string>
+    <string name="settings_close_lock_screen_dialog_title">Отключение умной зарядки</string>
+    <string name="settings_close_lock_screen_dialog_des">После отключения контроль зарядки в реальном времени прекратится. Отключить?</string>
+    <string name="ok">OK</string>
+    <string name="switching">Переключение...</string>
+    <string name="loading">Загрузка...</string>
+    <string name="problem_found_title">Найдена проблема</string>
+</resources>

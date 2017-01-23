@@ -175,6 +175,7 @@ public class MemoryCleanActivity extends BaseActivity {
     private float mExtendMinsValue;
     private boolean shouldCleanMemory;
     private boolean mAdIsLoaded = false;
+    private boolean mIsFirstLoadAD = true;
     private boolean mHasDestroy;
     private boolean mBgShouldAnim;
     private int mHourValue;
@@ -311,6 +312,11 @@ public class MemoryCleanActivity extends BaseActivity {
                 Glide.with(getApplicationContext())
                         .load(iconForAdUrl)
                         .into(mAdIconIv);
+
+                if (!mIsFirstLoadAD) {
+                    loadPic();
+                }
+                mIsFirstLoadAD = false;
                 facebookNativeAdBean.nativeAd.registerViewForInteraction(mAdLayout);
             }
         });
@@ -623,16 +629,7 @@ public class MemoryCleanActivity extends BaseActivity {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 mAdActionBtn.startAnim();
-                if (!TextUtils.isEmpty(coverImgUrl)){
-                    Glide.with(getApplicationContext())
-                            .load(coverImgUrl)
-                            .into(mAdIconIvTwo);
-                    Glide.with(getApplicationContext())
-                            .load(coverImgUrl)
-                            .into(mAdCoverIv);
-
-                }
-
+                loadPic();
             }
         });
         valueAnimator.setDuration(500);
@@ -642,6 +639,19 @@ public class MemoryCleanActivity extends BaseActivity {
         animatorSet.playTogether(cleanContentAnim, valueAnimator);
 
         return animatorSet;
+    }
+
+    private void loadPic() {
+
+        if (!TextUtils.isEmpty(coverImgUrl)){
+            Glide.with(getApplicationContext())
+                    .load(coverImgUrl)
+                    .into(mAdIconIvTwo);
+            Glide.with(getApplicationContext())
+                    .load(coverImgUrl)
+                    .into(mAdCoverIv);
+
+        }
     }
 
     @Override

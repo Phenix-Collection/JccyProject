@@ -121,4 +121,6 @@
     <string name="settings_close_lock_screen_dialog_des">Une fois désactivée, cette fonction ne surveillera plus le niveau de charge en temps réel. Désactiver ?</string>
     <string name="ok">OK</string>
     <string name="switching">Mise en marche...</string>
+    <string name="loading">Chargement...</string>
+    <string name="problem_found_title">Problème détecté</string>
 </resources>

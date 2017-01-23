@@ -121,4 +121,6 @@
     <string name="settings_close_lock_screen_dialog_des">Nach Deaktivierung wird der Ladestatus nicht mehr in Echtzeit überwacht. Deaktivieren?</string>
     <string name="ok">OK</string>
     <string name="switching">Wird geschaltet...</string>
+    <string name="loading">Wird geladen...</string>
+    <string name="problem_found_title">Problem gefunden</string>
 </resources>

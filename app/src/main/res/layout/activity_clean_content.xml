@@ -60,7 +60,5 @@
 
         <include layout="@layout/include_memory_clean_result"
             android:id="@+id/memory_clean_result_layout"/>
-        <include layout="@layout/clean_ad_layout"/>
-
     </FrameLayout>
 </LinearLayout>

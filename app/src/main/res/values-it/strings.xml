@@ -121,4 +121,6 @@
     <string name="settings_close_lock_screen_dialog_des">Una volta disattivato, non controllerà lo stato della carica in tempo reale. Disattivarlo?</string>
     <string name="ok">OK</string>
     <string name="switching">In fase di passaggio...</string>
+    <string name="loading">Caricamento in corso...</string>
+    <string name="problem_found_title">Problema rilevato</string>
 </resources>

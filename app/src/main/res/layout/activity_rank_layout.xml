@@ -8,5 +8,6 @@
     app:bubble_show="false">
 
     <include layout="@layout/rank_activity_content"/>
+    <include layout="@layout/rank_loading_layout"/>
 
 </com.abclauncher.powerboost.view.CustomFrameLayout>

@@ -19,12 +19,16 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abclauncher.powerboost.bean.AppInfo;
 import com.abclauncher.powerboost.clean.MemoryCleanActivity;
+import com.abclauncher.powerboost.clean.bean.AppProcessInfo;
+import com.abclauncher.powerboost.clean.utils.AppUtils;
 import com.abclauncher.powerboost.clean.utils.CleanUtil;
 import com.abclauncher.powerboost.locker.utils.LockerUtils;
 import com.abclauncher.powerboost.mode.ModeActivity;
@@ -39,6 +43,9 @@ import com.abclauncher.powerboost.util.statusbar_util.StatusBarUtil;
 import com.abclauncher.powerboost.view.BatteryProgress;
 import com.abclauncher.powerboost.view.CustomFrameLayout;
 import com.abclauncher.powerboost.view.MaterialRippleLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -85,6 +92,8 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
 
     @InjectView(R.id.btn_optimize_container)
     View mOptimizeContainer;
+    @InjectView(R.id.found_problem_des)
+    TextView mFoundProblemDes;
 
     private int mBatteryPercent;
     private boolean mShowUsageTime;
@@ -227,13 +236,35 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
         registerReceiver();
 
         if (CleanUtil.shouldCleanMemory(getApplicationContext())) {
+            mOptimizeText.setText(R.string.scaning);
+            new Thread(checkConsumePowerApps).start();
             mHandler.postDelayed(colorAnim, 200);
+        } else {
+            mOptimizeContainer.setScaleX(1.05f);
+            mOptimizeContainer.setScaleY(1.05f);
         }
-
 
         mHandler.sendEmptyMessageDelayed(REFRESH_BATTERY, 1000);
 
     }
+
+    private List<AppProcessInfo> apps = new ArrayList();
+    private Runnable checkConsumePowerApps = new Runnable() {
+        @Override
+        public void run() {
+            AppUtils.getRunningProcessInfo(getApplicationContext(), new AppUtils.ScanApps(){
+                @Override
+                public void scanApp(AppProcessInfo info) {
+                    if (apps.size() < 30) {
+                        Log.d(TAG, "scanApp: percent-->" + mPercent);
+                        apps.add(info);
+                    }
+                }
+            });
+            Log.d(TAG, "run: " + apps.size());
+            mFoundProblemDes.setText(apps.size() + " " + getResources().getString(R.string.scan_memory));
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -253,6 +284,24 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
     private Runnable colorAnim = new Runnable() {
         @Override
         public void run() {
+
+            ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
+                    mOptimizeContainer,
+                    PropertyValuesHolder.ofFloat("scaleX", 1f, 1.05f),
+                    PropertyValuesHolder.ofFloat("scaleY", 1f, 1.05f)
+            );
+            objectAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    //mOptimizeBtn.startAnim();
+                }
+            });
+            objectAnimator.setInterpolator(new AccelerateInterpolator());
+            objectAnimator.setDuration(1000);
+            objectAnimator.start();
+
+
             int blueStartColor = getResources().getColor(R.color.blue_start_color);
             int redStartColor = getResources().getColor(R.color.red_start_color);
             int blueEndColor = getResources().getColor(R.color.blue_end_color);
@@ -274,7 +323,6 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
                 @Override
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
-                    mOptimizeText.setText(R.string.scaning);
                 }
 
                 @Override
@@ -290,6 +338,7 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
             valueAnimator.start();
         }
     };
+
 
     private Runnable foundProblem = new Runnable() {
         @Override
@@ -309,62 +358,75 @@ public class MainActivity extends BaseActivity implements BatteryDataReceiver.Ba
 
             Animator foundProblemAnim = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.main_page_found_problem_anim);
             foundProblemAnim.setTarget(mProblemContainer);
-            foundProblemAnim.setDuration(200);
+            foundProblemAnim.setDuration(400);
 
             final float density = getResources().getDisplayMetrics().density;
+            mAppConsumePowerContainer.setAlpha(0);
+            mAppConsumePowerContainer.setTranslationY(- 16 * density);
+
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1);
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float animatedFraction = valueAnimator.getAnimatedFraction();
-                    mAppConsumePowerContainer.setAlpha(animatedFraction + 0.9f);
-                    mAppConsumePowerContainer.setTranslationY((1 - animatedFraction) * (-8 * density));
+                    mAppConsumePowerContainer.setAlpha(animatedFraction);
+                    mAppConsumePowerContainer.setTranslationY((1 - animatedFraction) * (- 16 * density));
                 }
             });
-            valueAnimator.setDuration(200);
+            valueAnimator.setDuration(400);
 
             AnimatorSet foundProblemSet = new AnimatorSet();
-            foundProblemSet.playSequentially(foundProblemAnim, valueAnimator);
+            foundProblemSet.play(foundProblemAnim).with(valueAnimator);
 
             AnimatorSet totalAnimSet = new AnimatorSet();
             totalAnimSet.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
+                    Log.d(TAG, "onAnimationStart: " + apps.size());
                     mBatteryContainer.setVisibility(View.GONE);
                     mUsageTimeContainer.setVisibility(View.GONE);
+                    mAppConsumePowerContainer.setAlpha(0);
                     mAppConsumePowerContainer.setVisibility(View.VISIBLE);
+                    mAppConsumePowerContainer.setTranslationY(- 16 * density);
                     mProblemContainer.setVisibility(View.VISIBLE);
-                    mAppConsumePowerContainer.setTranslationY( -8 * density);
+
                 }
 
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
                     mOptimizeText.setText(R.string.optimize);
+                    mOptimizeText.setAlpha(0);
+                    mHandler.postDelayed(showOptimize, 300);
                 }
             });
-            totalAnimSet.play(animatorSet).with(foundProblemAnim);
+            totalAnimSet.play(animatorSet).with(foundProblemSet);
             totalAnimSet.start();
 
+        }
+    };
 
-            ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                    mOptimizeContainer,
-                    PropertyValuesHolder.ofFloat("scaleX", 1f, 1.04f, 1f, 0.94f, 1f, 1.05f, 1.05f, 1f),
-                    PropertyValuesHolder.ofFloat("scaleY", 1f, 1.04f, 1f, 0.94f, 1f, 1.05f, 1.05f, 1f)
-            );
-            objectAnimator.addListener(new AnimatorListenerAdapter() {
+    private Runnable showOptimize = new Runnable() {
+        @Override
+        public void run() {
+            Animator animator = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.main_activity_optimize_show_in);
+            animator.setTarget(mOptimizeText);
+            animator.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    mOptimizeBtn.startAnim();
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mOptimizeBtn.startAnim();
+                        }
+                    }, 200);
                 }
             });
-            objectAnimator.setInterpolator(new AccelerateInterpolator());
-            objectAnimator.setDuration(600);
-            objectAnimator.start();
-
-
+            animator.setInterpolator(new AccelerateDecelerateInterpolator());
+            animator.setDuration(800);
+            animator.start();
         }
     };
 

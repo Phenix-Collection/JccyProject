@@ -143,6 +143,7 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
     private boolean mShowTrickleTime;
     private boolean mHasAnim = false;
     private String coverImgUrl;
+    private boolean mIsFirstLoadAd = true;
 
     @OnClick(R.id.back)
     public void finishActivity(){
@@ -204,9 +205,22 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
                 Glide.with(getApplicationContext())
                         .load(iconForAdUrl)
                         .into(mAdIconIv);
+                loadPic();
+                mIsFirstLoadAd = false;
                 facebookNativeAdBean.nativeAd.registerViewForInteraction(mAdLayout);
             }
         });
+    }
+
+    private void loadPic() {
+        if (!TextUtils.isEmpty(coverImgUrl)){
+            Glide.with(getApplicationContext())
+                    .load(coverImgUrl)
+                    .into(mAdCoverIv);
+            Glide.with(getApplicationContext())
+                    .load(coverImgUrl)
+                    .into(mAdCoverIvTwo);
+        }
     }
 
     private void calculateTranslate() {
@@ -275,14 +289,7 @@ public class ChargeActivity extends BaseActivity implements BatteryDataReceiver.
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if (!TextUtils.isEmpty(coverImgUrl)){
-                    Glide.with(getApplicationContext())
-                            .load(coverImgUrl)
-                            .into(mAdCoverIv);
-                    Glide.with(getApplicationContext())
-                            .load(coverImgUrl)
-                            .into(mAdCoverIvTwo);
-                }
+                loadPic();
                 mAdActionBtn.startAnim();
             }
         });

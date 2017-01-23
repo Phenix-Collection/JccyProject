@@ -121,4 +121,6 @@
     <string name="settings_close_lock_screen_dialog_des">Uma vez desativado, o estado de carregamento deixará de ser monitorizado em tempo real. Desativar?</string>
     <string name="ok">OK</string>
     <string name="switching">Comutação...</string>
+    <string name="loading">Carregando...</string>
+    <string name="problem_found_title">Detetd. probl.</string>
 </resources>

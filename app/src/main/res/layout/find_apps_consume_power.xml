@@ -3,17 +3,28 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/find_apps_consume_power_container"
-    android:visibility="invisible"
+    android:visibility="gone"
     android:layout_gravity="center">
-    <com.abclauncher.powerboost.view.NormalTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/problem_found"
-        android:textColor="@color/text_color_white"
-        android:gravity="center_horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:textSize="20sp"
-        android:layout_gravity="center_horizontal"/>
 
+        <com.abclauncher.powerboost.view.MediumTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="@string/problem_found_title"
+            android:textColor="@color/text_color_white"/>
+        <com.abclauncher.powerboost.view.LightTextView
+            android:id="@+id/found_problem_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_white"
+            android:gravity="center_horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"/>
 </LinearLayout>

@@ -123,4 +123,6 @@
     <string name="settings_close_lock_screen_dialog_des">一旦禁用, 将停止监控充电过程, 是否禁用?</string>
     <string name="ok">确认</string>
     <string name="switching">切换中...</string>
+    <string name="loading">加载中...</string>
+    <string name="problem_found_title">发现耗电问题</string>
 </resources>

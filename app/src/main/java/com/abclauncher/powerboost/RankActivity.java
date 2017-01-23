@@ -1,5 +1,8 @@
 package com.abclauncher.powerboost;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,6 +42,8 @@ public class RankActivity extends BaseActivity implements RankDao.AllAppsLoadedL
     RecyclerView mRecyclerView;
     @InjectView(R.id.content_view)
     View mContentView;
+    @InjectView(R.id.loading_layout)
+    View mLoadingLayout;
 
     @InjectView(R.id.checkbox)
     CheckBox mCheckBox;
@@ -74,7 +79,6 @@ public class RankActivity extends BaseActivity implements RankDao.AllAppsLoadedL
         // 设置右滑动返回
         RankDao rankDao = RankDao.getInstance(this);
         rankDao.setAppAppsLoadedListener(this);
-        showProgressDialog();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -101,24 +105,39 @@ public class RankActivity extends BaseActivity implements RankDao.AllAppsLoadedL
         StatusBarUtil.setTransparent(this);
     }
 
-    private void showProgressDialog() {
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage(getResources().getString(R.string.loading));
-        mProgressDialog.show();
-    }
-
     @Override
     public void onAllAppsInited() {
         Log.d(TAG, "onAllAppsInited: ");
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-        }
+
 
         mHandler.post(new Runnable() {
             @Override
             public void run() {
+                Animator animator = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.clean_content_dismiss_anim);
+                animator.setTarget(mLoadingLayout);
+                animator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        mLoadingLayout.setVisibility(View.INVISIBLE);
+                    }
+                });
+                animator.setDuration(50);
+                animator.start();
+
+                Animator appearAnim = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.rank_content_appear_anim);
+                appearAnim.setTarget(mContentView);
+                appearAnim.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        super.onAnimationStart(animation);
+                        mContentView.setVisibility(View.VISIBLE);
+                    }
+                });
+                appearAnim.setDuration(50);
+                appearAnim.start();
                 mAdapter.notifyDataSetChanged();
-                mContentView.setVisibility(View.VISIBLE);
+
             }
         });
     }

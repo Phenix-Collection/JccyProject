@@ -107,11 +107,11 @@
             android:layout_marginLeft="60dip"
             android:background="@drawable/ad_btn_bg"
             android:id="@+id/ad_action_btn"
-            app:mrl_rippleColor="@color/ripple_color_light"
-            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="@color/ripple_color_black"
+            app:mrl_rippleAlpha="0.05"
             app:mrl_ripple_background_allowed="false"
             app:mrl_rippleOverlay="true"
-            app:mrl_rippleRoundedCorners="20dp">
+            app:mrl_rippleRoundedCorners="4dp">
             <com.abclauncher.powerboost.view.MediumTextView
                 android:id="@+id/native_ad_call_to_action"
                 android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="INSTALL"
-                android:textColor="@color/text_color_white"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
         </com.abclauncher.powerboost.view.MaterialRippleLayout>
 

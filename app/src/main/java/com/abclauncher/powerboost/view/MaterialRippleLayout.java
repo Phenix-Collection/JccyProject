@@ -352,7 +352,7 @@ public class MaterialRippleLayout extends FrameLayout {
         currentCoords.set(getWidth()/2, getHeight()/2);
         final float radius = (float) (Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2)) * 1.2f);
         hoverAnimator = ObjectAnimator.ofFloat(this, radiusProperty,
-                5 * getResources().getDisplayMetrics().density, radius)
+                10 * getResources().getDisplayMetrics().density, radius)
                 .setDuration(800);
         hoverAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
