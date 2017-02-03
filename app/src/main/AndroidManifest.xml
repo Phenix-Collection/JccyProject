@@ -95,8 +95,9 @@
             android:theme="@style/NormalStyle"
             android:label="@string/charge"
             android:launchMode="singleTask"
-            android:taskAffinity="com.abclauncher.powerboost.charge"
             />
+           <!-- android:taskAffinity="com.abclauncher.powerboost.charge"-->
+
 
         <activity
             android:name=".FeedbackActivity"
@@ -148,7 +149,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".notification.lowpower.DeleteLowPowerReceiver">
+        <receiver android:name=".notification.lowpower.DeleteLowpowerReceiver">
             <intent-filter>
                 <action android:name="com.abclauncher.powerboost.low.power.deleted"/>
             </intent-filter>

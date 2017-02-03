@@ -390,10 +390,15 @@ public class MemoryCleanActivity extends BaseActivity {
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        for(AppProcessInfo info : apps) {
-                            killBackgroundProcesses(info.processName);
-                            killBackgroundProcesses(info.pid);
-                        }
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                for(AppProcessInfo info : apps) {
+                                    killBackgroundProcesses(info.processName);
+                                    killBackgroundProcesses(info.pid);
+                                }
+                            }
+                        }).start();
                         initExtendedList();
                     }
                 }, 900);
@@ -475,7 +480,7 @@ public class MemoryCleanActivity extends BaseActivity {
                 }
             });
 
-            valueAnimator1.setDuration(getCount() * 800);
+            valueAnimator1.setDuration(getCount() * 1000);
             //valueAnimator1.setStartDelay(2000);
             valueAnimator1.setInterpolator(new LinearInterpolator());
             valueAnimator1.start();
