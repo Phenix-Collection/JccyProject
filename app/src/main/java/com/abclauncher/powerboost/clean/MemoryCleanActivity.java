@@ -504,6 +504,13 @@ public class MemoryCleanActivity extends BaseActivity {
 
         Animator cleanContentAnim = AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.clean_content_dismiss_anim);
         cleanContentAnim.setTarget(mCleanContent);
+        cleanContentAnim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                mCleanContent.setVisibility(View.GONE);
+            }
+        });
         cleanContentAnim.setDuration(100);
 
 

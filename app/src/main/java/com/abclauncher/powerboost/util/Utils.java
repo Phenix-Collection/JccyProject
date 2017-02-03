@@ -291,7 +291,10 @@ public class Utils {
             } else {
                 currentTime = (long) (currentTime +  BLUETOOTH_TIME * percent * 1.f /100);
             }
-
+            Log.d(TAG, "getUsageTime: " + currentTime);
+            if (currentTime <= 1000 * 60) {
+                currentTime = 1000 * 60;
+            }
             SettingsHelper.setUsageTime(context, currentTime);
             return currentTime;
         } else {

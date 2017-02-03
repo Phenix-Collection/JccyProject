@@ -97,7 +97,7 @@ public class BatteryService extends Service{
             long usageTime = SettingsHelper.getUsageTime(getApplicationContext());
             switch (getAction) {
                 case Intent.ACTION_SCREEN_OFF:
-                    if (isCharging && SettingsHelper.getLockScreenOpened(getApplicationContext())) {
+                    if (SettingsHelper.getLockScreenOpened(getApplicationContext())) {
                         Log.d(TAG, "onReceive: SmartLockerActivity" );
                         SmartLockerActivity.start(BatteryService.this);
                     }

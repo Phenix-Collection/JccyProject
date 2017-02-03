@@ -26,6 +26,7 @@ import com.abclauncher.powerboost.locker.utils.LockerReceiver;
 import com.abclauncher.powerboost.locker.utils.LockerUtils;
 import com.abclauncher.powerboost.util.AdHelper;
 import com.abclauncher.powerboost.util.SettingsHelper;
+import com.abclauncher.powerboost.util.Utils;
 import com.abclauncher.powerboost.view.BatteryProgress;
 import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
@@ -270,7 +271,12 @@ public class SmartLockerActivity extends BaseLockerActivity implements LockerRec
                 mChargeValue.setVisibility(View.GONE);
             }
         }else {
-            mLockerChargeTimeContainer.setVisibility(View.INVISIBLE);
+            mTimeLeftDes.setText(R.string.usage_time);
+            String hour = Utils.getUsageHourValue(SettingsHelper.getUsageTime(getApplicationContext()));
+            String mins = Utils.getUsageMinutesValue(SettingsHelper.getUsageTime(getApplicationContext()));
+            mTimeLeftHourValue.setText(hour);
+            mTimeLeftMinutesValue.setText(mins);
+            //mLockerChargeTimeContainer.setVisibility(View.INVISIBLE);
         }
 
 

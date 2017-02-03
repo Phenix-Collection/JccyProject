@@ -95,8 +95,13 @@
             android:theme="@style/NormalStyle"
             android:label="@string/charge"
             android:launchMode="singleTask"
+           android:taskAffinity="com.batterysaver.powerplus.charge"
             />
-           <!-- android:taskAffinity="com.abclauncher.powerboost.charge"-->
+           <!--
+             android:excludeFromRecents="true"
+            android:exported="false"
+            android:taskAffinity="com.abclauncher.powerboost.charge"
+           android:taskAffinity="com.abclauncher.powerboost.charge"-->
 
 
         <activity
